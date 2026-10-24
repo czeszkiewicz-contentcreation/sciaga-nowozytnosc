@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Nowożytność 1492–1795</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: atlas-style study app; two semantic tracks (Polska = crimson, Świat = blue), gold marks the anchor dates */
+:root{
+  --bg:#f3f4f7; --surface:#ffffff; --ink:#172033; --muted:#5d6577; --line:#dde1e8;
+  --pl:#b3262e; --pl-soft:#f8e5e6; --sw:#1f62a3; --sw-soft:#e2ecf7; --gold:#a86b12; --gold-soft:#f6ecd9;
+  --good:#1d7a52; --bad:#b0412e;
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f131c; --surface:#171d29; --ink:#e8ecf3; --muted:#9aa3b5; --line:#283044;
+  --pl:#ff7b80; --pl-soft:#3a1d22; --sw:#79b2ee; --sw-soft:#18283d; --gold:#e8b45a; --gold-soft:#33291a;
+  --good:#5fcf9a; --bad:#ff8a74; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f131c; --surface:#171d29; --ink:#e8ecf3; --muted:#9aa3b5; --line:#283044;
+  --pl:#ff7b80; --pl-soft:#3a1d22; --sw:#79b2ee; --sw-soft:#18283d; --gold:#e8b45a; --gold-soft:#33291a;
+  --good:#5fcf9a; --bad:#ff8a74; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 calc(150px + env(safe-area-inset-bottom,0px))}
+header{padding-block:22px 12px;display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1{font-family:var(--disp);font-weight:700;font-size:2.2rem;line-height:1.05;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 span{color:var(--pl)}
+.sub{color:var(--muted);margin:0}
+nav.old{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line);
+  margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;font:500 .9rem var(--ui);color:var(--muted);background:none;border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--surface)}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+section{display:flex;flex-direction:column;gap:14px;padding-top:18px}
+h2{font-family:var(--disp);font-weight:700;font-size:1.5rem;margin:8px 0 0;line-height:1.15;text-wrap:balance}
+h3{margin:0;font-size:1rem}
+p{margin:0}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tip{background:var(--gold-soft);border-radius:12px;padding:12px 16px}
+.tip b{color:var(--gold)}
+ul,ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.pl{color:var(--pl)} .sw{color:var(--sw)}
+.tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:999px;vertical-align:middle}
+.tag.pl{background:var(--pl-soft);color:var(--pl)} .tag.sw{background:var(--sw-soft);color:var(--sw)} .tag.k{background:var(--gold-soft);color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:500 .84rem var(--ui);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chips button.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.btn{font:600 .9rem var(--ui);padding:10px 18px;border-radius:999px;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer}
+.btn.pri{background:var(--ink);color:var(--surface)}
+.btn:disabled{opacity:.35;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* era strip */
+.eras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.era{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.era .c{font-family:var(--disp);font-weight:700;font-size:1.5rem;line-height:1}
+.era p{font-size:.82rem;line-height:1.35}
+@media (max-width:560px){.eras{grid-template-columns:1fr}}
+/* anchors */
+.anchors{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.anc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;border-top:3px solid var(--sw)}
+.anc.pl{border-top-color:var(--pl)}
+.anc .y{font-family:var(--disp);font-weight:700;font-size:1.45rem;line-height:1.1;color:var(--ink)}
+.anc .t{font-size:.82rem;line-height:1.3;color:var(--muted)}
+/* modules */
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.mod{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.mod:focus-visible{outline:2px solid var(--gold)}
+.mod .n{font-family:var(--disp);font-weight:700;font-size:1.6rem;line-height:1;color:var(--gold)}
+.mod b{font-size:1rem;line-height:1.25}
+.mod span{font-size:.8rem;color:var(--muted)}
+.mod .bar{height:4px;border-radius:2px;background:var(--line);overflow:hidden;margin-top:4px}
+.mod .bar i{display:block;height:100%;background:var(--good)}
+/* slide viewer */
+.viewer{display:flex;flex-direction:column;gap:12px}
+.vtop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.prog{display:flex;gap:4px;flex:1}
+.prog i{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.prog i.on{background:var(--gold)}
+.slide{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 20px;min-height:340px;display:flex;flex-direction:column;gap:12px;touch-action:pan-y}
+.slide .mtitle{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.slide h2{margin:0;font-size:1.65rem}
+.slide .bigd{font-family:var(--disp);font-weight:700;font-size:2.6rem;line-height:1;color:var(--gold)}
+.slide ul{gap:9px}
+.slide li{line-height:1.45}
+.slide b{color:var(--ink);font-weight:600}
+.slide .why{margin-top:auto;background:var(--sw-soft);border-radius:12px;padding:10px 12px;font-size:.9rem}
+.slide .why::before{content:"Dlaczego to ważne: ";font-weight:600;color:var(--sw)}
+.mq{display:flex;flex-direction:column;gap:12px}
+.mq .q{font-weight:600}
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:0;position:relative}
+.ev{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.ev:focus-visible{outline:2px solid var(--gold)}
+.ev .y{font-family:var(--disp);font-weight:700;font-size:1.15rem;text-align:right;font-variant-numeric:tabular-nums}
+.ev.pl .y{color:var(--pl)} .ev.sw .y{color:var(--sw)}
+.ev .t{font-weight:500;line-height:1.35}
+.ev .d{font-size:.86rem;color:var(--muted);margin-top:4px}
+.ev .star{color:var(--gold)}
+.cent{font-family:var(--disp);font-weight:700;font-size:1.2rem;padding:14px 0 4px;color:var(--muted)}
+@media (min-width:640px){
+  .tl.split .ev{grid-template-columns:1fr 64px 1fr;}
+  .tl.split .ev.pl .y{order:2}.tl.split .ev.pl .body{order:1;text-align:right}.tl.split .ev.pl::after{content:"";order:3}
+  .tl.split .ev.sw::before{content:"";order:1}.tl.split .ev.sw .y{order:2;text-align:left}.tl.split .ev.sw .body{order:3}
+}
+/* kings */
+.kings{display:flex;flex-direction:column;gap:6px}
+.king{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.king .hd{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.king .hd b{font-size:.98rem}
+.king .hd span{font-family:var(--disp);font-weight:700;color:var(--pl);white-space:nowrap;font-variant-numeric:tabular-nums}
+.king .track{position:relative;height:6px;background:var(--line);border-radius:3px}
+.king .track i{position:absolute;top:0;height:100%;background:var(--pl);border-radius:3px}
+.king .dyn{font-size:.75rem;color:var(--muted)}
+.king .facts{font-size:.88rem;display:flex;flex-direction:column;gap:4px;padding-top:4px;border-top:1px dashed var(--line)}
+.scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);padding:0 12px;font-variant-numeric:tabular-nums}
+/* cards & quiz */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.card .q{font-family:var(--disp);font-size:1.35rem;font-weight:700;line-height:1.25;text-wrap:balance}
+.card .hint{color:var(--muted);font-size:.92rem}
+.flip{min-height:220px;justify-content:center;cursor:pointer}
+.flip .a{font-size:1rem;line-height:1.45;color:var(--ink);max-width:52ch}
+.opts{display:grid;grid-template-columns:1fr;gap:8px;width:100%}
+.opts.two{grid-template-columns:1fr 1fr}
+.opts button{font:500 .95rem var(--ui);padding:12px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;line-height:1.35}
+.opts.two button{text-align:center;font-family:var(--disp);font-weight:700;font-size:1.25rem}
+.opts button.ok{background:var(--good);color:#fff;border-color:var(--good)}
+.opts button.no{background:var(--bad);color:#fff;border-color:var(--bad)}
+.opts button.sel{border-color:var(--gold);background:var(--gold-soft)}
+.opts button .ord{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font-size:.75rem;margin-right:8px}
+.score{color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
+.fb{min-height:1.4em;font-size:.92rem;color:var(--muted);max-width:56ch}
+.meter{height:8px;border-radius:4px;background:var(--line);overflow:hidden;width:100%;max-width:320px}
+.meter i{display:block;height:100%;background:var(--good)}
+
+/* phone-first navigation: bottom tab bar + sticky action bar */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;
+  padding:6px max(6px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px))}
+.bnav button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;border-radius:12px;font:500 .68rem var(--ui);color:var(--muted);text-align:center;-webkit-tap-highlight-color:transparent}
+.bnav button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bnav button[aria-selected="true"]{color:var(--ink);background:var(--bg)}
+.bnav button[aria-selected="true"] svg{stroke:var(--gold)}
+.bnav button:focus-visible{outline:2px solid var(--gold)}
+.actbar{position:fixed;left:0;right:0;z-index:19;bottom:calc(64px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line);
+  padding:8px max(12px,env(safe-area-inset-right,0px)) 8px max(12px,env(safe-area-inset-left,0px));display:flex;gap:8px;align-items:center;justify-content:space-between}
+.actbar .btn{min-height:46px;flex:1;max-width:240px}
+.actbar .score{flex:0 0 auto;text-align:center;min-width:56px}
+@media (min-width:800px){.actbar{left:50%;transform:translateX(-50%);width:780px;border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0}}
+button,.btn,.chips button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.chips button{min-height:38px}
+.opts button{min-height:48px}
+@media (max-width:480px){h1{font-size:1.75rem}header{padding-block:16px 6px}.slide{padding:18px 16px;min-height:0}.slide h2{font-size:1.4rem}.slide .bigd{font-size:2.1rem}.card{padding:18px 14px}}
+@media (prefers-reduced-motion:no-preference){.slide{animation:in .25s ease}@keyframes in{from{opacity:.4;transform:translateX(8px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Hyperlearning · historia nowożytna</span>
+  <h1>Nowożytność <span>Polski</span> i świata</h1>
+  <p class="sub">Od Kolumba do III rozbioru. 12 modułów-prezentacji, oś czasu, królowie, fiszki i quiz. Postępy zapisują się w tej przeglądarce.</p>
+</header>
+
+
+
+<!-- START -->
+<section id="start" hidden>
+  <h2>Epoka w trzech zdaniach</h2>
+  <div class="eras">
+    <div class="era"><div class="c">XVI w.</div><p><span class="sw">Świat:</span> odkrycia, renesans, reformacja.</p><p><span class="pl">Polska:</span> złoty wiek Jagiellonów, demokracja szlachecka, unia lubelska.</p></div>
+    <div class="era"><div class="c">XVII w.</div><p><span class="sw">Świat:</span> wojny religijne, absolutyzm, rewolucja angielska.</p><p><span class="pl">Polska:</span> Wazowie, wojny ze wszystkimi sąsiadami, potop, Wiedeń 1683.</p></div>
+    <div class="era"><div class="c">XVIII w.</div><p><span class="sw">Świat:</span> nowe potęgi, oświecenie, rewolucje w USA i Francji.</p><p><span class="pl">Polska:</span> czasy saskie, reformy, Konstytucja 3 maja, rozbiory.</p></div>
+  </div>
+  <h2>Szkielet: 20 dat-kotwic</h2>
+  <p class="sub">Naucz się ich najpierw. Każdą inną datę przyczepisz potem do najbliższej kotwicy.</p>
+  <div class="anchors" id="anchors"></div>
+  <h2>Metoda hyperlearningu</h2>
+  <div class="box"><ol>
+    <li><b>Szkielet (10 min):</b> 20 kotwic powyżej. Zakryj rok, podaj z pamięci.</li>
+    <li><b>Moduły (po 5–7 min):</b> slajdy przeglądasz w kolejności, a na końcu robisz mini-test. Moduł 0 to totalne podstawy.</li>
+    <li><b>Oś czasu w trybie „obok siebie”:</b> zawsze łącz Polskę ze światem. „Unia lubelska 1569 = 3 lata przed nocą św. Bartłomieja”.</li>
+    <li><b>Aktywne przypominanie:</b> fiszki „Umiem / Jeszcze nie”. Te, których nie umiesz, wracają.</li>
+    <li><b>Quiz w 5 trybach:</b> daty, kolejność, synchronizacja Polska–świat, królowie, pojęcia.</li>
+  </ol></div>
+  <div class="tip"><b>Periodyzacja:</b> nowożytność zaczyna się ok. 1450–1500 (upadek Konstantynopola 1453, druk, Kolumb 1492, reformacja 1517). W historii powszechnej kończy się na 1789 (rewolucja francuska), w historii Polski na 1795 (III rozbiór). Część programów ciągnie ją do kongresu wiedeńskiego w 1815 r.</div>
+  <div class="row"><button class="btn pri" id="goMod0">Zacznij od modułu 0 →</button></div>
+</section>
+
+<!-- MODUŁY -->
+<section id="moduly" hidden>
+  <div id="modList">
+    <h2>12 modułów</h2>
+    <p class="sub" style="margin-bottom:10px">Każdy moduł to kilka slajdów i mini-test. Pasek pokazuje twój postęp.</p>
+    <div class="mods" id="mods"></div>
+  </div>
+  <div class="viewer" id="viewer" hidden>
+    <div class="vtop"><button class="btn" id="vBack">← Moduły</button><div class="prog" id="vProg"></div></div>
+    <div id="vSlide"></div>
+    <div class="actbar"><button class="btn" id="vPrev">← Wstecz</button><span class="score" id="vNum"></span><button class="btn pri" id="vNext">Dalej →</button></div>
+  </div>
+</section>
+
+<!-- OŚ CZASU -->
+<section id="os" hidden>
+  <h2>Polska i świat na jednej osi</h2>
+  <div class="chips" id="tlTrack"><button class="on" data-v="all">Obok siebie</button><button data-v="pl">Tylko Polska</button><button data-v="sw">Tylko świat</button></div>
+  <div class="chips" id="tlCent"><button class="on" data-v="0">Wszystko</button><button data-v="15">do 1500</button><button data-v="16">XVI w.</button><button data-v="17">XVII w.</button><button data-v="18">XVIII w.</button><button data-v="19">po 1795</button></div>
+  <div class="chips" id="tlKey"><button data-v="1">★ Tylko kotwice</button></div>
+  <p class="sub" style="font-size:.85rem">Na szerokim ekranie Polska jest po lewej, świat po prawej. Stuknij wydarzenie, żeby zobaczyć szczegóły.</p>
+  <div class="tl split" id="tl"></div>
+</section>
+
+<!-- KRÓLOWIE -->
+<section id="krolowie" hidden>
+  <h2>Poczet królów 1501–1795</h2>
+  <p class="sub">Pasek pokazuje długość panowania na skali 1500–1800. Stuknij króla, żeby zobaczyć, co musisz o nim wiedzieć.</p>
+  <div class="scale"><span>1500</span><span>1600</span><span>1700</span><span>1800</span></div>
+  <div class="kings" id="kings"></div>
+  <div class="tip"><b>Trik na dynastie:</b> <span class="pl">J</span>agiellonowie → wolne <span class="pl">E</span>lekcje (Walezy, Batory) → <span class="pl">W</span>azowie → „<span class="pl">P</span>iastowie” (królowie-Polacy: Wiśniowiecki, Sobieski) → <span class="pl">S</span>asi → <span class="pl">P</span>oniatowski. Czyli <b>J-E-W-P-S-P</b>.</div>
+</section>
+
+<!-- FISZKI -->
+<section id="fiszki" hidden>
+  <h2>Fiszki z powtórkami</h2>
+  <div class="chips" id="deckSel"><button class="on" data-v="poj">Pojęcia</button><button data-v="pos">Postacie</button><button data-v="dat">Daty</button></div>
+  <div class="card flip" id="fCard">
+    <div class="score" id="fStat"></div>
+    <div class="meter"><i id="fMeter" style="width:0"></i></div>
+    <div class="q" id="fQ"></div>
+    <div class="a" id="fA" hidden></div>
+    <div class="hint" id="fHint">Stuknij kartę, żeby odwrócić</div>
+  </div>
+  <div class="actbar"><button class="btn" id="fNo">Jeszcze nie</button><button class="btn pri" id="fYes">Umiem ✓</button></div>
+  <div class="row" style="justify-content:center"><button class="btn" id="fReset" style="font-size:.8rem;padding:6px 12px">Wyzeruj tę talię</button></div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" hidden>
+  <h2>Quiz</h2>
+  <div class="chips" id="qModes"></div>
+  <div class="card">
+    <div class="score" id="qScore">0 / 0 · seria 0</div>
+    <div class="hint" id="qHint"></div>
+    <div class="q" id="qQ"></div>
+    <div class="opts" id="qO"></div>
+    <div class="fb" id="qFb"></div>
+    </div>
+  <div class="actbar"><button class="btn" id="qCheck" hidden>Sprawdź</button><button class="btn pri" id="qNext">Dalej →</button></div>
+  <div hidden>
+  </div>
+</section>
+</div>
+<nav class="bnav" role="tablist" aria-label="Sekcje"><button role="tab" data-t="start" id="nav-start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Start</button><button role="tab" data-t="moduly" id="nav-moduly"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Moduły</button><button role="tab" data-t="os" id="nav-os"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><circle cx="7" cy="12" r="2"/><circle cx="13" cy="12" r="2"/><circle cx="19" cy="12" r="1.5"/><path d="M7 6v4M13 14v4"/></svg>Oś czasu</button><button role="tab" data-t="krolowie" id="nav-krolowie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16L18 8l-4 4-2-6-2 6-4-4z"/></svg>Królowie</button><button role="tab" data-t="fiszki" id="nav-fiszki"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="13" height="16" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h9"/></svg>Fiszki</button><button role="tab" data-t="quiz" id="nav-quiz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Quiz</button></nav>
+
+<script>
+const $=id=>document.getElementById(id);
+const store={get(k,d){try{return JSON.parse(localStorage.getItem("nw-"+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem("nw-"+k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+
+/* ================= DANE: WYDARZENIA ================= */
+// [rok, tor, tytuł, opis, kotwica]
+const EV=[
+[1453,"sw","Upadek Konstantynopola","Turcy osmańscy (Mehmed II) zdobywają stolicę Bizancjum. Jedna z umownych granic średniowiecza i nowożytności.",1],
+[1455,"sw","Biblia Gutenberga (ok.)","Druk ruchomą czcionką w Moguncji. Książka tanieje, a idee (np. reformacji) rozchodzą się błyskawicznie.",0],
+[1488,"sw","Dias opływa Przylądek Dobrej Nadziei","Portugalczycy udowadniają, że da się opłynąć Afrykę.",0],
+[1492,"sw","Kolumb dociera do Ameryki","12 X 1492, wyspa Guanahani (San Salvador) na Bahamach. Kolumb do końca myślał, że dotarł do Azji.",1],
+[1493,"pl","Pierwszy dwuizbowy sejm walny","Piotrków: obok senatu obraduje izba poselska. Narodziny polskiego parlamentaryzmu.",0],
+[1494,"sw","Traktat w Tordesillas","Hiszpania i Portugalia dzielą świat pozaeuropejski linią na Atlantyku. Stąd portugalska Brazylia.",0],
+[1496,"pl","Statuty piotrkowskie","Ograniczenie wychodźstwa chłopów ze wsi i przywileje handlowe szlachty. Krok do pańszczyzny.",0],
+[1498,"sw","Vasco da Gama w Indiach","Morska droga do Indii (Kalikat) wokół Afryki. Portugalia zdobywa handel przyprawami.",1],
+[1505,"pl","Konstytucja Nihil novi","Sejm w Radomiu: król nie może wprowadzić niczego nowego bez zgody senatu i izby poselskiej. Początek demokracji szlacheckiej.",1],
+[1506,"pl","Zygmunt I Stary królem","Panuje do 1548. Żona: Bona Sforza. Renesans na Wawelu.",0],
+[1511,"sw","Erazm „Pochwała głupoty”","Satyra humanisty z Rotterdamu na Kościół i obyczaje.",0],
+[1513,"sw","Machiavelli pisze „Księcia”","Polityka oddzielona od moralności: cel uświęca środki (wydany 1532).",0],
+[1517,"sw","95 tez Lutra","31 X 1517, Wittenberga: protest przeciw odpustom. Początek reformacji.",1],
+[1519,"sw","Wyprawa Magellana (1519–1522)","Pierwsze opłynięcie Ziemi. Magellan ginie na Filipinach (1521), wyprawę kończy Elcano. Karol V Habsburg cesarzem.",0],
+[1520,"pl","Statut toruński","Pańszczyzna co najmniej 1 dzień w tygodniu z łanu. Rozwój folwarku.",0],
+[1521,"sw","Sejm w Wormacji, Cortés zdobywa Tenochtitlan","Luter wyjęty spod prawa (edykt wormacki). W Meksyku upada państwo Azteków.",0],
+[1525,"pl","Hołd pruski","10 IV 1525, Kraków: Albrecht Hohenzollern sekularyzuje zakon i składa hołd Zygmuntowi Staremu. Prusy Książęce lennem Polski.",1],
+[1526,"sw","Bitwa pod Mohaczem","Turcy rozbijają Węgrów. Ginie Ludwik II Jagiellończyk, Węgry i Czechy przechodzą do Habsburgów.",0],
+[1526,"pl","Inkorporacja Mazowsza","Po śmierci ostatnich książąt mazowieckich Mazowsze wchodzi do Korony.",0],
+[1529,"sw","Pierwsze oblężenie Wiednia","Sulejman Wspaniały nie zdobywa miasta. Szczyt potęgi tureckiej.",0],
+[1534,"sw","Akt supremacji","Henryk VIII głową Kościoła w Anglii. Powstaje anglikanizm.",0],
+[1540,"sw","Zatwierdzenie jezuitów","Papież zatwierdza zakon Ignacego Loyoli. Główna siła kontrreformacji.",0],
+[1543,"pl","Kopernik „O obrotach sfer niebieskich”","Teoria heliocentryczna. Początek rewolucji naukowej. W tym samym roku Rej wydaje „Krótką rozprawę”.",1],
+[1545,"sw","Sobór trydencki (1545–1563)","Odpowiedź Kościoła na reformację: potwierdzenie dogmatów, seminaria duchowne, dyscyplina kleru.",1],
+[1548,"pl","Zygmunt II August królem","Ostatni Jagiellon (do 1572). Romans i ślub z Barbarą Radziwiłłówną.",0],
+[1555,"sw","Pokój augsburski","Cuius regio, eius religio: władca decyduje o wyznaniu poddanych (katolicyzm albo luteranizm).",1],
+[1561,"pl","Inflanty pod władzą Polski i Litwy","Rozpad zakonu kawalerów mieczowych. Kurlandia lennem, Inflanty przy Litwie. Wojna o Inflanty z Moskwą.",0],
+[1562,"pl","Sejm egzekucyjny (1562–1563)","Szlachta średnia wymusza zwrot królewszczyzn (egzekucja dóbr). Kwarta na wojsko kwarciane.",0],
+[1562,"sw","Wojny religijne we Francji (1562–1598)","Katolicy przeciw hugenotom (francuskim kalwinom).",0],
+[1564,"pl","Jezuici w Polsce","Sprowadzeni przez kard. Stanisława Hozjusza (Braniewo). Kolegia, kontrreformacja.",0],
+[1569,"pl","Unia lubelska","1 VII 1569: Korona i Litwa tworzą Rzeczpospolitą Obojga Narodów. Wspólny król, sejm, moneta i polityka zagraniczna. Podlasie, Wołyń i Kijowszczyzna przechodzą do Korony.",1],
+[1571,"sw","Bitwa pod Lepanto","Liga Święta (Hiszpania, Wenecja, papież) rozbija flotę turecką.",0],
+[1572,"pl","Koniec Jagiellonów","7 VII 1572 umiera Zygmunt August. Pierwsze bezkrólewie: interrexem jest prymas.",1],
+[1572,"sw","Noc św. Bartłomieja","24 VIII 1572, Paryż: rzeź hugenotów.",0],
+[1573,"pl","Konfederacja warszawska i pierwsza wolna elekcja","Gwarancja pokoju religijnego. Elekcja viritim: wybrany Henryk Walezy, który zaprzysięga artykuły henrykowskie i pacta conventa.",1],
+[1576,"pl","Stefan Batory królem","Panuje do 1586 (z Anną Jagiellonką). Wojna z Moskwą Iwana Groźnego.",0],
+[1578,"pl","Trybunał Koronny","Najwyższy sąd szlachecki. Litewski w 1581.",0],
+[1579,"sw","Unia utrechcka","Północne prowincje Niderlandów jednoczą się przeciw Hiszpanii. Zaczątek Republiki Zjednoczonych Prowincji.",0],
+[1580,"pl","Kochanowski „Treny”","Szczyt polskiej poezji renesansowej.",0],
+[1582,"pl","Rozejm w Jamie Zapolskim","Batory kończy wojnę z Moskwą. Inflanty przy Rzeczypospolitej.",0],
+[1587,"pl","Zygmunt III Waza królem","Panuje do 1632. Wazowie dążą do odzyskania tronu szwedzkiego, co prowadzi do wojen ze Szwecją.",0],
+[1588,"sw","Klęska Wielkiej Armady","Anglia Elżbiety I pokonuje flotę Filipa II. Początek angielskiej potęgi morskiej.",1],
+[1594,"pl","Akademia Zamojska","Uczelnia założona przez kanclerza Jana Zamoyskiego.",0],
+[1596,"pl","Unia brzeska","Część prawosławnych uznaje zwierzchnictwo papieża (Kościół unicki). Około tego czasu dwór przenosi się z Krakowa do Warszawy.",1],
+[1598,"sw","Edykt nantejski","Henryk IV daje hugenotom wolność wyznania. Koniec wojen religijnych we Francji.",1],
+[1602,"sw","Holenderska Kompania Wschodnioindyjska","Pierwsza wielka spółka akcyjna. Złoty wiek Niderlandów.",0],
+[1605,"pl","Kircholm","Hetman Jan Karol Chodkiewicz rozbija Szwedów. Szarża husarii.",0],
+[1606,"pl","Rokosz Zebrzydowskiego (1606–1609)","Bunt szlachty przeciw planom wzmocnienia władzy Zygmunta III.",0],
+[1610,"pl","Kłuszyn i Polacy na Kremlu","Hetman Żółkiewski rozbija Rosjan i Szwedów. Polska załoga na Kremlu do 1612. Czas wielkiej smuty w Rosji.",0],
+[1613,"sw","Romanowowie w Rosji","Michał Romanow carem. Dynastia rządzi do 1917.",0],
+[1618,"sw","Defenestracja praska","Początek wojny trzydziestoletniej (1618–1648).",1],
+[1620,"pl","Cecora","Klęska z Turkami, ginie hetman Żółkiewski. Rok później (1621) Chodkiewicz broni Chocimia.",0],
+[1620,"sw","Mayflower","Purytańscy osadnicy płyną do Ameryki Północnej.",0],
+[1632,"sw","Bitwa pod Lützen","Szwedzi wygrywają, ale ginie król Gustaw II Adolf.",0],
+[1633,"sw","Proces Galileusza","Inkwizycja zmusza go do odwołania poglądów heliocentrycznych.",0],
+[1634,"pl","Pokój w Polanowie","Po wojnie smoleńskiej Władysław IV zrzeka się pretensji do tronu carskiego. Rosja potwierdza utratę Smoleńska.",0],
+[1635,"pl","Rozejm w Sztumskiej Wsi","Szwedzi oddają część Prus (porty) na 26 lat.",0],
+[1642,"sw","Rewolucja angielska (1642–1649)","Wojna domowa: król Karol I przeciw parlamentowi. Armia Cromwella wygrywa.",1],
+[1643,"sw","Ludwik XIV królem Francji","Panuje do 1715, najdłużej w Europie. „Król Słońce”, symbol absolutyzmu.",1],
+[1648,"pl","Powstanie Chmielnickiego","Kozacy z Tatarami rozbijają wojska koronne (Żółte Wody, Korsuń). Na tron wstępuje Jan II Kazimierz.",1],
+[1648,"sw","Pokój westfalski","Koniec wojny trzydziestoletniej. Rozbicie Rzeszy, uznanie Szwajcarii i Niderlandów. Początek ładu suwerennych państw.",1],
+[1649,"sw","Ścięcie Karola I","Anglia republiką, potem protektorat Cromwella (1653–1658).",1],
+[1651,"sw","Hobbes „Lewiatan”","Teoria umowy społecznej uzasadniająca silną, absolutną władzę.",0],
+[1652,"pl","Pierwsze liberum veto","Poseł Władysław Siciński zrywa sejm. Jeden głos może unieważnić obrady.",1],
+[1654,"pl","Ugoda perejasławska","Kozacy poddają się carowi. Wojna polsko-rosyjska (1654–1667).",0],
+[1655,"pl","Potop szwedzki (1655–1660)","Karol X Gustaw zajmuje większość kraju. Obrona Jasnej Góry (ks. Kordecki), wojna szarpana Czarnieckiego.",1],
+[1656,"pl","Śluby lwowskie","Jan Kazimierz oddaje kraj pod opiekę Matki Boskiej i obiecuje poprawę doli chłopów.",0],
+[1657,"pl","Traktaty welawsko-bydgoskie","Rzeczpospolita rezygnuje ze zwierzchnictwa nad Prusami Książęcymi. Hohenzollernowie suwerenni.",0],
+[1660,"pl","Pokój w Oliwie","Koniec wojny ze Szwecją. Jan Kazimierz zrzeka się praw do tronu szwedzkiego.",0],
+[1660,"sw","Restauracja Stuartów w Anglii","Karol II królem.",0],
+[1667,"pl","Rozejm w Andruszowie","Rosja dostaje Smoleńszczyznę, lewobrzeżną Ukrainę i Kijów. Potwierdza to pokój Grzymułtowskiego (1686).",1],
+[1672,"pl","Pokój w Buczaczu","Rzeczpospolita oddaje Turcji Podole z Kamieńcem Podolskim.",0],
+[1673,"pl","Chocim","Hetman Jan Sobieski rozbija Turków. Rok później zostaje królem.",0],
+[1674,"pl","Jan III Sobieski królem","Panuje do 1696.",0],
+[1679,"sw","Habeas Corpus Act","Anglia: nikt nie może być więziony bez postawienia przed sądem.",0],
+[1683,"pl","Odsiecz wiedeńska","12 IX 1683: Sobieski rozbija Turków Kara Mustafy. Koniec tureckiej ekspansji w Europie.",1],
+[1685,"sw","Odwołanie edyktu nantejskiego","Ludwik XIV wypędza hugenotów (edykt z Fontainebleau).",0],
+[1687,"sw","Newton „Principia”","Prawa ruchu i powszechnego ciążenia. Szczyt rewolucji naukowej.",0],
+[1688,"sw","Chwalebna rewolucja","Wygnanie Jakuba II. Wilhelm Orański i Maria. Rok później Bill of Rights (1689): monarchia parlamentarna.",1],
+[1697,"pl","August II Mocny królem","Wettin, elektor saski. Początek czasów saskich (do 1763).",0],
+[1699,"pl","Pokój w Karłowicach","Turcja oddaje Podole.",0],
+[1700,"sw","Wojna północna (1700–1721)","Rosja, Saksonia i Dania przeciw Szwecji Karola XII. Toczy się w dużej mierze na ziemiach Rzeczypospolitej.",0],
+[1701,"sw","Królestwo w Prusach","Elektor Fryderyk III koronuje się na Fryderyka I. Wojna o sukcesję hiszpańską (1701–1714).",0],
+[1703,"sw","Założenie Petersburga","Nowa stolica Rosji Piotra I, „okno na Europę”.",0],
+[1704,"pl","Stanisław Leszczyński królem","Wybrany pod naciskiem Szwedów. Po Połtawie wraca August II (1709).",0],
+[1709,"sw","Połtawa","Piotr I rozbija Karola XII. Upadek potęgi szwedzkiej, wzrost Rosji.",1],
+[1717,"pl","Sejm niemy","Pod naciskiem Rosji armia ograniczona do 24 tys. Car staje się gwarantem ustroju.",1],
+[1721,"sw","Pokój w Nystad, cesarstwo rosyjskie","Rosja dostaje wybrzeże Bałtyku, Piotr I ogłasza się cesarzem.",0],
+[1733,"pl","Podwójna elekcja","Leszczyński kontra August III. Wojna o sukcesję polską (1733–1735), wygrywa August III.",0],
+[1740,"pl","Collegium Nobilium","Stanisław Konarski zakłada nowoczesną szkołę dla synów szlachty.",0],
+[1740,"sw","Fryderyk II i Maria Teresa","Fryderyk II zajmuje Śląsk. Wojna o sukcesję austriacką (1740–1748).",0],
+[1747,"pl","Biblioteka Załuskich","Jedna z pierwszych bibliotek publicznych w Europie (Warszawa).",0],
+[1748,"sw","Monteskiusz „O duchu praw”","Trójpodział władzy: ustawodawcza, wykonawcza, sądownicza.",1],
+[1751,"sw","Wielka Encyklopedia (1751–1772)","Diderot i d'Alembert. Manifest oświecenia.",0],
+[1756,"sw","Wojna siedmioletnia (1756–1763)","Prusy i Wielka Brytania przeciw Austrii, Francji i Rosji. Brytyjczycy przejmują Kanadę i Indie.",1],
+[1762,"sw","Katarzyna II, Rousseau „Umowa społeczna”","Katarzyna II caryca do 1796. Rousseau: suwerenność należy do ludu.",0],
+[1764,"pl","Stanisław August Poniatowski królem","Wybrany przy poparciu Katarzyny II. Ostatni król (do 1795).",1],
+[1765,"pl","Szkoła Rycerska","Kształci oficerów-obywateli (m.in. Kościuszkę).",0],
+[1768,"pl","Konfederacja barska (1768–1772)","Zbrojny bunt szlachty przeciw Rosji i królowi w obronie wiary i wolności.",0],
+[1769,"sw","Maszyna parowa Watta","Patent Jamesa Watta. Rewolucja przemysłowa w Anglii.",1],
+[1772,"pl","I rozbiór","5 VIII 1772: Rosja, Prusy i Austria zabierają ok. 30% terytorium. Rejtan protestuje na sejmie (1773).",1],
+[1773,"pl","Komisja Edukacji Narodowej","Pierwsze w Europie ministerstwo oświaty, finansowane z majątku skasowanego zakonu jezuitów.",1],
+[1773,"sw","Bostońska herbatka","Protest kolonistów przeciw podatkom: „no taxation without representation”.",0],
+[1775,"pl","Rada Nieustająca","Pierwszy stały rząd Rzeczypospolitej, pod kontrolą ambasadora rosyjskiego.",0],
+[1776,"sw","Deklaracja niepodległości USA","4 VII 1776 (Jefferson). Adam Smith wydaje „Bogactwo narodów”.",1],
+[1783,"sw","Pokój paryski","Wielka Brytania uznaje niepodległość USA.",0],
+[1787,"sw","Konstytucja USA","Pierwsza nowoczesna konstytucja pisana: trójpodział władz i federalizm.",1],
+[1788,"pl","Sejm Czteroletni (1788–1792)","Sejm Wielki, obradujący jako konfederacja (bez liberum veto). Armia 100 tys., reformy.",0],
+[1789,"sw","Rewolucja francuska","14 VII 1789 szturm Bastylii, 26 VIII Deklaracja Praw Człowieka i Obywatela.",1],
+[1791,"pl","Konstytucja 3 maja","Pierwsza w Europie, druga na świecie: trójpodział, monarchia dziedziczna, koniec liberum veto, prawa mieszczan, opieka prawa nad chłopami.",1],
+[1792,"pl","Targowica i wojna z Rosją","Konfederaci wzywają Rosję. Zieleńce (ustanowienie Virtuti Militari), Dubienka. Król przystępuje do Targowicy.",0],
+[1792,"sw","Francja republiką","Upadek monarchii, wojny rewolucyjne.",0],
+[1793,"pl","II rozbiór","Rosja i Prusy. Sejm grodzieński zatwierdza rozbiór.",1],
+[1793,"sw","Ścięcie Ludwika XVI, terror jakobinów","21 I 1793. Robespierre i Komitet Ocalenia Publicznego, terror 1793–1794.",0],
+[1794,"pl","Insurekcja kościuszkowska","24 III przysięga w Krakowie, 4 IV Racławice (kosynierzy), 7 V uniwersał połaniecki, 10 X Maciejowice, 4 XI rzeź Pragi.",1],
+[1794,"sw","9 termidora","27 VII 1794: upadek i stracenie Robespierre'a.",0],
+[1795,"pl","III rozbiór","Rosja, Prusy i Austria likwidują Rzeczpospolitą. 25 XI 1795 abdykacja Stanisława Augusta.",1],
+[1797,"pl","Legiony Dąbrowskiego","We Włoszech, u boku Francji. „Mazurek Dąbrowskiego” Wybickiego.",0],
+[1799,"sw","Zamach 18 brumaire'a","Napoleon Bonaparte pierwszym konsulem.",0],
+[1804,"sw","Napoleon cesarzem, Kodeks Napoleona","Kodeks cywilny: równość wobec prawa i własność.",0],
+[1807,"pl","Księstwo Warszawskie","Utworzone przez Napoleona na mocy pokoju w Tylży.",0],
+[1815,"sw","Kongres wiedeński (1814–1815)","Nowy ład Europy po Napoleonie. Powstaje Królestwo Polskie z carem jako królem.",1]
+];
+
+/* ================= KRÓLOWIE ================= */
+const KINGS=[
+{n:"Aleksander Jagiellończyk",a:1501,b:1506,d:"Jagiellonowie",f:["Konstytucja Nihil novi (1505)","Statut Łaskiego (1506), pierwsza kodyfikacja prawa"]},
+{n:"Zygmunt I Stary",a:1506,b:1548,d:"Jagiellonowie",f:["Hołd pruski 1525","Wojna z zakonem 1519–1521","Inkorporacja Mazowsza 1526","Bona Sforza, renesans na Wawelu, Kaplica Zygmuntowska"]},
+{n:"Zygmunt II August",a:1548,b:1572,d:"Jagiellonowie",f:["Ostatni Jagiellon","Sejm egzekucyjny 1562–1563","Inflanty 1561","Unia lubelska 1569"]},
+{n:"Henryk Walezy",a:1573,b:1574,d:"elekcja",f:["Pierwszy król elekcyjny","Artykuły henrykowskie i pacta conventa","Uciekł do Francji po kilku miesiącach (został Henrykiem III)"]},
+{n:"Stefan Batory",a:1576,b:1586,d:"elekcja",f:["Mąż Anny Jagiellonki","Wojna z Moskwą: Połock 1579, Psków 1581","Rozejm w Jamie Zapolskim 1582","Trybunał Koronny 1578, piechota wybraniecka"]},
+{n:"Zygmunt III Waza",a:1587,b:1632,d:"Wazowie",f:["Wojny ze Szwecją (Kircholm 1605)","Unia brzeska 1596","Rokosz Zebrzydowskiego 1606–1609","Kłuszyn 1610, Chocim 1621","Dwór w Warszawie"]},
+{n:"Władysław IV Waza",a:1632,b:1648,d:"Wazowie",f:["Wojna smoleńska, pokój w Polanowie 1634","Rozejm w Sztumskiej Wsi 1635","Pokojowe rządy przed burzą"]},
+{n:"Jan II Kazimierz",a:1648,b:1668,d:"Wazowie",f:["Powstanie Chmielnickiego 1648","Pierwsze liberum veto 1652","Potop 1655–1660, śluby lwowskie 1656","Welawa-Bydgoszcz 1657, Oliwa 1660, Andruszów 1667","Rokosz Lubomirskiego 1665–1666, abdykacja 1668"]},
+{n:"Michał Korybut Wiśniowiecki",a:1669,b:1673,d:"królowie-Polacy",f:["Pokój w Buczaczu 1672 (utrata Podola)","Umiera w przededniu zwycięstwa pod Chocimiem"]},
+{n:"Jan III Sobieski",a:1674,b:1696,d:"królowie-Polacy",f:["Chocim 1673 (jeszcze jako hetman)","Odsiecz wiedeńska 12 IX 1683","Liga Święta 1684","Pokój Grzymułtowskiego 1686","Wilanów"]},
+{n:"August II Mocny",a:1697,b:1733,d:"Sasi",gap:[1706,1709],f:["Wojna północna 1700–1721","Detronizowany przez Szwedów 1706, wraca 1709","Karłowice 1699 (Podole wraca)","Sejm niemy 1717"]},
+{n:"Stanisław Leszczyński",a:1704,b:1709,d:"elekcja",f:["Król z nadania Karola XII","Ponownie wybrany 1733, przegrywa wojnę o sukcesję polską","Potem książę Lotaryngii, teść Ludwika XV"]},
+{n:"August III Sas",a:1733,b:1763,d:"Sasi",f:["Wojna o sukcesję polską 1733–1735","Prawie wszystkie sejmy zerwane","„Za króla Sasa jedz, pij i popuszczaj pasa”","Konarski, Załuscy: początki reform"]},
+{n:"Stanisław August Poniatowski",a:1764,b:1795,d:"ostatni król",f:["Szkoła Rycerska 1765, KEN 1773","Konfederacja barska 1768–1772","Trzy rozbiory: 1772, 1793, 1795","Konstytucja 3 maja 1791","Abdykacja 25 XI 1795"]}
+];
+
+/* ================= POJĘCIA ================= */
+const POJ=[
+["Humanizm","Nurt renesansu, który stawia człowieka w centrum zainteresowania i wraca do wzorów antyku. „Jestem człowiekiem i nic, co ludzkie, nie jest mi obce”."],
+["Renesans","Odrodzenie kultury antycznej, Włochy XV–XVI w. Realizm, perspektywa, harmonia."],
+["Reformacja","Ruch religijny XVI w. (Luter, Kalwin), który rozbił jedność Kościoła zachodniego."],
+["Sola scriptura, sola fide","Zasady Lutra: jedynym źródłem wiary jest Pismo, a zbawienie daje sama wiara."],
+["Predestynacja","Nauka Kalwina: Bóg z góry przeznaczył ludzi do zbawienia albo potępienia."],
+["Cuius regio, eius religio","„Czyj kraj, tego religia”. Zasada pokoju augsburskiego 1555."],
+["Kontrreformacja","Odnowa katolicka i walka z reformacją: sobór trydencki, jezuici, inkwizycja, indeks ksiąg zakazanych."],
+["Hugenoci","Francuscy kalwini."],
+["Purytanie","Radykalni kalwini w Anglii. Część wyemigrowała do Ameryki (Mayflower 1620)."],
+["Absolutyzm","Ustrój, w którym monarcha ma pełnię władzy, nieograniczoną przez stany. Wzór: Ludwik XIV."],
+["Absolutyzm oświecony","Absolutyzm połączony z reformami w duchu oświecenia: Fryderyk II, Katarzyna II, Józef II."],
+["Merkantylizm","Polityka gospodarcza absolutyzmu: więcej eksportu niż importu, gromadzenie kruszcu, wspieranie manufaktur (Colbert)."],
+["Rewolucja cen","Wzrost cen w XVI w. wywołany napływem srebra i złota z Ameryki."],
+["Wymiana kolumbijska","Przepływ roślin, zwierząt i chorób między Starym a Nowym Światem: ziemniak, kukurydza i tytoń do Europy, konie i ospa do Ameryki."],
+["Handel trójkątny","Europa (towary) → Afryka (niewolnicy) → Ameryka (cukier, bawełna, tytoń) → Europa."],
+["Dualizm gospodarczy","Podział Europy na granicy Łaby: na zachodzie miasta i manufaktury, na wschodzie folwark i pańszczyzna."],
+["Folwark pańszczyźniany","Gospodarstwo szlacheckie produkujące zboże na eksport, oparte na darmowej pracy chłopów (pańszczyźnie)."],
+["Demokracja szlachecka","Ustrój Rzeczypospolitej XVI–XVIII w.: władza dzielona między króla a szlachtę (sejm, sejmiki)."],
+["Trzy stany sejmujące","Król, senat i izba poselska."],
+["Nihil novi","Konstytucja radomska 1505: nic nowego bez wspólnej zgody senatu i posłów."],
+["Ruch egzekucyjny","Program średniej szlachty w XVI w.: egzekucja praw i zwrot nieprawnie trzymanych dóbr królewskich."],
+["Wolna elekcja","Wybór króla przez całą szlachtę (viritim) od 1573 r."],
+["Interrex","Prymas jako zastępca króla w czasie bezkrólewia."],
+["Artykuły henrykowskie","Stałe prawa ustrojowe zaprzysięgane przez każdego elekta: wolna elekcja, sejm co 2 lata, zgoda sejmu na podatki i wojnę, prawo wypowiedzenia posłuszeństwa."],
+["Pacta conventa","Osobiste zobowiązania konkretnego elekta (np. budowa floty, spłata długów)."],
+["Konfederacja warszawska","1573: gwarancja pokoju między wyznaniami. Polska jako „państwo bez stosów”."],
+["Liberum veto","Prawo jednego posła do zerwania sejmu. Pierwszy raz w 1652 r. (Siciński)."],
+["Konfederacja","Legalny związek zbrojny szlachty dla osiągnięcia celu politycznego. Obradowała większością głosów."],
+["Rokosz","Zbrojny bunt szlachty przeciw królowi, uzasadniany prawem wypowiedzenia posłuszeństwa."],
+["Sarmatyzm","Kultura i ideologia szlachty XVII–XVIII w.: mit pochodzenia od Sarmatów, złota wolność, przedmurze chrześcijaństwa."],
+["Oligarchia magnacka","Faktyczna władza kilku najbogatszych rodów (XVII–XVIII w.), które kupowały głosy szlachty."],
+["Unia personalna vs realna","Personalna: wspólny władca. Realna: także wspólne instytucje (sejm). Krewo 1385 było personalne, Lublin 1569 realny."],
+["Unici","Grekokatolicy po unii brzeskiej 1596: obrządek wschodni, zwierzchnictwo papieża."],
+["Oświecenie","Epoka XVIII w.: rozum, nauka, tolerancja, krytyka tradycji i przywilejów. „Sapere aude” (Kant)."],
+["Trójpodział władzy","Władza ustawodawcza, wykonawcza i sądownicza w osobnych rękach (Monteskiusz)."],
+["Umowa społeczna","Państwo powstaje z umowy ludzi. Hobbes: dla silnej władzy, Locke: dla ochrony praw, Rousseau: suwerenność ludu."],
+["Prawa naturalne","U Locke'a: życie, wolność, własność. Przysługują człowiekowi z natury."],
+["Habeas Corpus","Angielska ustawa z 1679: ochrona przed bezprawnym uwięzieniem."],
+["Bill of Rights","1689: prawa parlamentu wobec króla. Podstawa monarchii parlamentarnej."],
+["Pokój westfalski","1648: koniec wojny 30-letniej, ład suwerennych państw, uznanie Szwajcarii i Niderlandów."],
+["Sejm niemy","1717: sejm bez dyskusji ogranicza armię do 24 tys. Rosja staje się gwarantem."],
+["KEN","Komisja Edukacji Narodowej, 1773: pierwsze ministerstwo oświaty w Europie."],
+["Rada Nieustająca","1775: pierwszy stały rząd Rzeczypospolitej, z departamentami."],
+["Targowica","Konfederacja magnatów z 1792 r. przeciw Konstytucji 3 maja, wspierana przez Rosję. Synonim zdrady."],
+["Uniwersał połaniecki","7 V 1794, Kościuszko: chłopi osobiście wolni, pańszczyzna zmniejszona."],
+["Kosynierzy","Chłopi uzbrojeni w kosy postawione na sztorc. Bohaterowie Racławic 1794."],
+["Hołd pruski","1525: Albrecht Hohenzollern lennikiem Polski. Prusy Książęce świeckim księstwem."],
+["Potop","Najazd szwedzki 1655–1660."]
+];
+
+/* ================= POSTACIE ================= */
+const POS=[
+["Krzysztof Kolumb","Genueńczyk w służbie Hiszpanii, odkrywca Ameryki (1492)."],
+["Vasco da Gama","Portugalczyk, dopłynął morzem do Indii (1498)."],
+["Ferdynand Magellan","Pierwsza wyprawa dookoła świata (1519–1522). Zginął w drodze, wyprawę dokończył Elcano."],
+["Hernán Cortés","Konkwistador, podbój Azteków (1519–1521)."],
+["Francisco Pizarro","Konkwistador, podbój Inków (1532–1533)."],
+["Marcin Luter","Twórca reformacji: 95 tez (1517), przekład Biblii na niemiecki."],
+["Jan Kalwin","Reformator w Genewie, nauka o predestynacji."],
+["Henryk VIII","Król Anglii, twórca anglikanizmu (akt supremacji 1534)."],
+["Ignacy Loyola","Założyciel jezuitów (zatwierdzeni 1540)."],
+["Mikołaj Kopernik","Heliocentryzm, „O obrotach sfer niebieskich” (1543)."],
+["Galileusz","Obserwacje teleskopem, obrona heliocentryzmu. Proces w 1633 r."],
+["Isaac Newton","Prawa ruchu i grawitacja, „Principia” (1687)."],
+["Niccolò Machiavelli","„Książę”: polityczny realizm."],
+["Erazm z Rotterdamu","Książę humanistów, „Pochwała głupoty”."],
+["Karol V","Habsburg, cesarz (1519–1556), władca imperium, „nad którym nie zachodzi słońce”."],
+["Filip II","Król Hiszpanii (1556–1598), Lepanto, Wielka Armada."],
+["Elżbieta I","Królowa Anglii (1558–1603), zwycięstwo nad Armadą 1588."],
+["Henryk IV","Król Francji, edykt nantejski 1598. „Paryż wart jest mszy”."],
+["Kardynał Richelieu","Pierwszy minister Ludwika XIII, budowniczy absolutyzmu."],
+["Ludwik XIV","„Król Słońce” (1643–1715), Wersal, absolutyzm."],
+["Oliver Cromwell","Wódz parlamentu w rewolucji angielskiej, lord protektor (1653–1658)."],
+["Gustaw II Adolf","Król Szwecji, bohater wojny 30-letniej, zginął pod Lützen 1632."],
+["Piotr I Wielki","Car (zm. 1725), modernizacja Rosji, Petersburg, Połtawa, cesarz od 1721."],
+["Karol XII","Król Szwecji, przegrał pod Połtawą 1709."],
+["Fryderyk II Wielki","Król Prus (1740–1786), absolutysta oświecony, wojny śląskie, I rozbiór."],
+["Maria Teresa","Władczyni Austrii (1740–1780)."],
+["Katarzyna II","Caryca (1762–1796), wpływ na Rzeczpospolitą, wszystkie trzy rozbiory."],
+["John Locke","Umowa społeczna, prawa naturalne, tolerancja."],
+["Monteskiusz","Trójpodział władzy, „O duchu praw” (1748)."],
+["Wolter","Oświeceniowy krytyk Kościoła i nietolerancji."],
+["Jan Jakub Rousseau","„Umowa społeczna” (1762), suwerenność ludu."],
+["Adam Smith","Ojciec ekonomii liberalnej, „Bogactwo narodów” (1776)."],
+["Jerzy Waszyngton","Wódz rewolucji amerykańskiej, pierwszy prezydent USA (1789)."],
+["Maximilien Robespierre","Przywódca jakobinów, terror 1793–1794."],
+["Napoleon Bonaparte","Pierwszy konsul (1799), cesarz (1804), twórca Księstwa Warszawskiego (1807)."],
+["Jan Zamoyski","Kanclerz i hetman, „trybun” szlachty, Akademia Zamojska."],
+["Stanisław Żółkiewski","Hetman, Kłuszyn 1610, zginął pod Cecorą 1620."],
+["Jan Karol Chodkiewicz","Hetman, Kircholm 1605, obrona Chocimia 1621."],
+["Stefan Czarniecki","Bohater potopu, wojna szarpana (wspomniany w hymnie)."],
+["Bohdan Chmielnicki","Hetman kozacki, powstanie 1648."],
+["Andrzej Frycz Modrzewski","„O poprawie Rzeczypospolitej” (1551): równość wobec prawa."],
+["Mikołaj Rej","„Ojciec literatury polskiej”: „Polacy nie gęsi…”."],
+["Jan Kochanowski","Największy poeta renesansu: „Treny”, „Odprawa posłów greckich”."],
+["Piotr Skarga","Jezuita, „Kazania sejmowe” (1597)."],
+["Stanisław Konarski","Reformator szkół (Collegium Nobilium), krytyk liberum veto."],
+["Hugo Kołłątaj","Ideolog reform Sejmu Czteroletniego, współautor Konstytucji 3 maja."],
+["Tadeusz Rejtan","Poseł, który na sejmie w 1773 r. protestował przeciw I rozbiorowi."],
+["Tadeusz Kościuszko","Bohater wojny o niepodległość USA, Dubienki 1792 i naczelnik insurekcji 1794."],
+["Kazimierz Pułaski","Konfederat barski, „ojciec kawalerii amerykańskiej”, poległ pod Savannah (1779)."]
+];
+
+/* ================= MODUŁY ================= */
+// slajd: {t, d?, b:[], w?} ; quiz: [pytanie, poprawna, błędne...]
+const MODS=[
+{t:"Podstawy: mapa epoki",c:"przypomnienie",s:[
+ {t:"Co to jest nowożytność?",d:"1492 → 1789/1795",b:["Epoka między średniowieczem a XIX w., czyli <b>ok. 300 lat</b>.","Początek: <b>1453</b> (Konstantynopol), <b>ok. 1455</b> (druk), <b>1492</b> (Kolumb) albo <b>1517</b> (Luter). Wybór zależy od autora.","Koniec: <b>1789</b> (rewolucja francuska) w historii powszechnej, <b>1795</b> (III rozbiór) w historii Polski."],w:"Na egzaminie warto pokazać, że periodyzacja jest umowna, i podać 2–3 możliwe cezury."},
+ {t:"Trzy wstrząsy na start",b:["<b>Odkrycia:</b> świat Europejczyków nagle się powiększa: Ameryka, morska droga do Indii.","<b>Druk:</b> wiedza i idee rozchodzą się szybko i tanio.","<b>Reformacja:</b> pęka jedność religijna Europy zachodniej."],w:"Te trzy zjawiska napędzają resztę epoki: handel atlantycki, wojny religijne i nowe państwo."},
+ {t:"Cztery silniki epoki",b:["<b>Państwo:</b> rośnie władza królów (absolutyzm). Wyjątki to Anglia, Niderlandy i Rzeczpospolita.","<b>Religia:</b> Europa dzieli się na katolików, luteranów, kalwinów i anglikanów.","<b>Gospodarka:</b> handel przenosi się na Atlantyk, a na wschodzie Europy rozwija się folwark.","<b>Idee:</b> rewolucja naukowa (Kopernik → Newton), potem oświecenie."],w:"Przy każdym wydarzeniu zapytaj, który silnik je napędza. To działa jak gotowy plan wypracowania."},
+ {t:"Polska w jednym zdaniu",b:["<span class='pl'><b>XVI w.</b></span>: potęga i złoty wiek Jagiellonów, demokracja szlachecka, unia lubelska.","<span class='pl'><b>XVII w.</b></span>: wolna elekcja, Wazowie, wojny ze Szwecją, Rosją, Turcją i Kozakami, potop, Wiedeń.","<span class='pl'><b>XVIII w.</b></span>: Sasi, wpływ Rosji, reformy Stanisława Augusta, Konstytucja 3 maja i trzy rozbiory."],w:"Rzeczpospolita idzie pod prąd Europy: tam rośnie władza królów, tu szlachty. To główna oś interpretacyjna."},
+ {t:"Geografia: kto jest kim",b:["<b>Zachód:</b> Hiszpania i Portugalia (XVI w.), potem Niderlandy, Anglia i Francja (XVII–XVIII w.).","<b>Środek:</b> Rzesza Niemiecka (setki państewek, cesarz Habsburg), Habsburgowie austriaccy, Prusy (od 1701 królestwo).","<b>Wschód:</b> Rzeczpospolita, Moskwa/Rosja, Szwecja (potęga XVII w.), Imperium Osmańskie."],w:"Sąsiedzi Rzeczypospolitej w XVII w. to wszyscy jej wrogowie z tej listy: Szwecja, Rosja, Turcja, a w XVIII w. także Prusy i Austria."}
+],q:[["Która data NIE jest typową cezurą początku nowożytności?","1569","1492","1517","1453"],["Kiedy kończy się nowożytność w historii Polski?","1795","1683","1918","1648"],["Który kraj był potęgą XVII w. na Bałtyku?","Szwecja","Portugalia","Wenecja","Hiszpania"]]},
+
+{t:"Wielkie odkrycia geograficzne",c:"XV–XVI w.",s:[
+ {t:"Dlaczego wypłynęli?",b:["<b>Przyprawy i złoto:</b> handel ze Wschodem był drogi, a Turcy (po <b>1453</b>) i Wenecjanie kontrolowali szlaki.","<b>Technika:</b> karawela, kompas, astrolabium, lepsze mapy.","<b>Idee:</b> wiara w kulistość Ziemi, ciekawość renesansu, chęć szerzenia chrześcijaństwa.","<b>Państwa:</b> Portugalia (Henryk Żeglarz) i Hiszpania po rekonkwiście (1492)."],w:"Typowe pytanie egzaminacyjne: przyczyny ekonomiczne, techniczne, religijne i polityczne."},
+ {t:"Portugalia: wokół Afryki",d:"1488 · 1498",b:["<b>1488</b> Bartolomeu Dias opływa Przylądek Dobrej Nadziei.","<b>1498</b> Vasco da Gama dociera do Kalikatu w Indiach.","<b>1500</b> Cabral przypadkiem dopływa do Brazylii.","Portugalczycy budują sieć faktorii handlowych, nie wielkie kolonie."],w:"Portugalia stawia na handel, a Hiszpania na podbój. To dwa różne modele kolonializmu."},
+ {t:"Hiszpania: na zachód",d:"1492",b:["<b>12 X 1492</b> Kolumb na Bahamach. Myślał, że to Indie, stąd „Indianie”.","<b>1494</b> traktat w Tordesillas: podział świata z Portugalią.","Nazwa „Ameryka” pochodzi od Amerigo Vespucciego.","<b>1519–1522</b> wyprawa Magellana (dokończona przez Elcano) dowodzi kulistości Ziemi."]},
+ {t:"Konkwista",b:["<b>Cortés</b> podbija Azteków (Tenochtitlan, 1521).","<b>Pizarro</b> podbija Inków (1532–1533).","Garstka Hiszpanów wygrywa dzięki koniom, broni palnej, sojusznikom wśród Indian i przede wszystkim epidemiom (ospa).","Srebro z Potosí i Meksyku płynie do Sewilli."],w:"Katastrofa demograficzna: ludność Ameryki spada o kilkadziesiąt procent."},
+ {t:"Skutki: świat się globalizuje",b:["<b>Rewolucja cen</b> w Europie (inflacja od srebra).","Centrum handlu przesuwa się z Morza Śródziemnego na <b>Atlantyk</b> (Lizbona, Sewilla, Antwerpia, potem Amsterdam).","<b>Wymiana kolumbijska:</b> ziemniak, kukurydza, pomidor, tytoń do Europy; konie, bydło i choroby do Ameryki.","<b>Handel trójkątny</b> i niewolnictwo afrykańskie.","<b>Dualizm gospodarczy</b> Europy: zachód miast, wschód folwarku."],w:"Popyt zachodu na zboże napędza polski folwark. Odkrycia mają skutki aż nad Wisłą."}
+],q:[["Kto pierwszy dopłynął morzem do Indii?","Vasco da Gama","Kolumb","Magellan","Dias"],["Co ustalał traktat w Tordesillas (1494)?","podział świata między Hiszpanię i Portugalię","koniec wojen religijnych","granice Polski i Litwy","podział Ameryki Północnej"],["Rewolucja cen w XVI w. była skutkiem…","napływu srebra i złota z Ameryki","reformacji","wojny 30-letniej","wynalezienia druku"]]},
+
+{t:"Renesans, humanizm, rewolucja naukowa",c:"XV–XVII w.",s:[
+ {t:"Odrodzenie antyku",b:["Renesans rodzi się we <b>Włoszech</b> (Florencja Medyceuszy), XV–XVI w.","<b>Humanizm:</b> człowiek w centrum, powrót do greki i łaciny, krytyczne czytanie tekstów.","Ideał: <b>uomo universale</b>, człowiek wszechstronny."]},
+ {t:"Wielcy artyści",b:["<b>Leonardo da Vinci:</b> „Mona Lisa”, „Ostatnia Wieczerza”, wynalazki.","<b>Michał Anioł:</b> „Dawid”, sklepienie Kaplicy Sykstyńskiej (1508–1512).","<b>Rafael:</b> „Szkoła ateńska”.","Na północy: Dürer, Holbein, Bruegel."]},
+ {t:"Myśl polityczna i religijna",b:["<b>Erazm z Rotterdamu:</b> „Pochwała głupoty” (1511), humanizm chrześcijański.","<b>Machiavelli:</b> „Książę” (1513), polityka jako sztuka skuteczności.","<b>Thomas More:</b> „Utopia” (1516), wizja idealnego państwa."]},
+ {t:"Rewolucja naukowa",d:"1543 → 1687",b:["<b>Kopernik</b> 1543: Ziemia krąży wokół Słońca.","<b>Kepler:</b> eliptyczne orbity. <b>Galileusz:</b> teleskop i proces (1633).","<b>Newton</b> 1687: prawa ruchu i grawitacji.","Nowa metoda: eksperyment i matematyka (Bacon, Kartezjusz)."],w:"Od Kopernika do Newtona zmienia się obraz świata. To fundament oświecenia."},
+ {t:"Renesans w Polsce",b:["Wawel przebudowany za Zygmunta Starego, <b>Kaplica Zygmuntowska</b> (Berrecci).","<b>Mikołaj Rej:</b> pisze po polsku („Polacy nie gęsi, iż swój język mają”).","<b>Jan Kochanowski:</b> „Treny” (1580), „Odprawa posłów greckich” (1578).","<b>Frycz Modrzewski:</b> „O poprawie Rzeczypospolitej” (1551).","<b>Akademia Zamojska</b> (1594). Pierwsze druki w Krakowie (1473)."],w:"XVI w. to „złoty wiek” Polski: kultura, gospodarka i polityka na szczycie."}
+],q:[["Autor „Księcia”?","Machiavelli","Erazm","More","Kopernik"],["Kiedy ukazało się dzieło Kopernika?","1543","1492","1517","1610"],["Kto napisał „O poprawie Rzeczypospolitej”?","Andrzej Frycz Modrzewski","Jan Kochanowski","Piotr Skarga","Mikołaj Rej"]]},
+
+{t:"Reformacja i kontrreformacja",c:"XVI w.",s:[
+ {t:"Dlaczego wybuchła?",b:["Kryzys Kościoła: <b>handel odpustami</b> (budowa bazyliki św. Piotra), symonia, nepotyzm, niski poziom kleru.","<b>Druk</b> pozwala szybko rozpowszechnić krytykę.","Książęta niemieccy chcą przejąć majątki Kościoła i uniezależnić się od cesarza i papieża."]},
+ {t:"Luter",d:"31 X 1517",b:["95 tez w Wittenberdze przeciw odpustom.","<b>Sola scriptura, sola fide, sola gratia.</b> Dwa sakramenty: chrzest i komunia.","1520 pali bullę papieską, <b>1521 sejm w Wormacji</b>: banicja. Ukrywa się w Wartburgu i tłumaczy Biblię.","1524–1525 wojna chłopska. Luter staje po stronie książąt."]},
+ {t:"Kalwin, Zwingli, Anglia",b:["<b>Zwingli</b> w Zurychu.","<b>Kalwin</b> w Genewie: <b>predestynacja</b>, surowa dyscyplina, zbory. Kalwini to we Francji hugenoci, w Anglii purytanie.","<b>Henryk VIII</b>: akt supremacji <b>1534</b>, anglikanizm. Powód: papież nie zgodził się na unieważnienie małżeństwa z Katarzyną Aragońską."]},
+ {t:"Pokój augsburski",d:"1555",b:["Kompromis w Rzeszy: <b>cuius regio, eius religio</b>.","Uznane tylko katolicyzm i luteranizm, kalwinizm nie.","Pokój nie trwa długo: napięcia wybuchną w wojnie 30-letniej (1618)."]},
+ {t:"Kontrreformacja",b:["<b>Jezuici</b> (Ignacy Loyola, 1540): szkoły, misje, spowiednicy władców.","<b>Sobór trydencki 1545–1563</b>: potwierdzenie dogmatów, 7 sakramentów, seminaria duchowne, celibat.","<b>Inkwizycja rzymska</b> (1542) i <b>indeks ksiąg zakazanych</b> (1559)."],w:"Barok jest sztuką kontrreformacji: ma poruszać emocje wiernych."},
+ {t:"Polska: państwo bez stosów",b:["Luteranizm w miastach (Prusy Królewskie), kalwinizm wśród szlachty i magnatów (Radziwiłłowie), <b>bracia polscy</b> (arianie).","<b>Konfederacja warszawska 1573</b>: pokój między wyznaniami dla szlachty.","Kontrreformacja: Hozjusz sprowadza jezuitów (1564), Skarga. Arianie wygnani w 1658 r.","<b>Unia brzeska 1596</b>: powstaje Kościół unicki (greckokatolicki)."],w:"Tolerancja wynikała z siły szlachty, której król nie mógł narzucić wyznania."}
+],q:[["Zasada pokoju augsburskiego?","cuius regio, eius religio","sola scriptura","nihil novi","liberum veto"],["Sobór trydencki obradował w latach…","1545–1563","1517–1521","1618–1648","1569–1573"],["Co gwarantowała konfederacja warszawska 1573?","pokój między wyznaniami","wolną elekcję viritim","unię z Litwą","zakaz liberum veto"]]},
+
+{t:"Polska Jagiellonów i demokracja szlachecka",c:"1493–1572",s:[
+ {t:"Ustrój: trzy stany sejmujące",b:["<b>Król + senat + izba poselska</b> = sejm walny (od 1493).","Posłów wybierają <b>sejmiki</b> ziemskie.","<b>1505 Nihil novi</b> (Radom): nic nowego bez zgody senatu i posłów.","Szlachta to ok. 8–10% ludności, wyjątkowo dużo jak na Europę."],w:"Demokracja szlachecka to republika jednego stanu: wolność szlachty kosztem mieszczan i chłopów."},
+ {t:"Zygmunt Stary i Prusy",d:"1525",b:["Wojna z zakonem krzyżackim <b>1519–1521</b>.","<b>Hołd pruski 10 IV 1525:</b> Albrecht Hohenzollern przechodzi na luteranizm, a państwo zakonne staje się świeckimi Prusami Książęcymi, lennem Polski.","1526 Mazowsze włączone do Korony."],w:"W 1525 r. to sukces, ale w XVIII w. Prusy Hohenzollernów staną się jednym z zaborców."},
+ {t:"Ruch egzekucyjny",b:["Średnia szlachta przeciw magnatom: <b>egzekucja praw i dóbr</b>.","<b>Sejm 1562–1563</b>: zwrot królewszczyzn i <b>kwarta</b> (1/4 dochodów) na stałe wojsko kwarciane.","Zygmunt August wspiera egzekucjonistów."]},
+ {t:"Inflanty i unia lubelska",d:"1 VII 1569",b:["1561: rozpad zakonu w Inflantach, przyłączenie ich do Litwy i Polski.","Litwa, wyczerpana wojną z Moskwą, potrzebuje Korony.","<b>Unia lubelska</b>: wspólny król, sejm, polityka zagraniczna i moneta. Odrębne urzędy, skarb, wojsko i prawo.","Do Korony przechodzą <b>Podlasie, Wołyń, Kijowszczyzna</b> (i Bracławszczyzna)."],w:"Unia realna zamiast personalnej. Powstaje Rzeczpospolita Obojga Narodów, jedno z największych państw Europy."},
+ {t:"Gospodarka: spichlerz Europy",b:["<b>Folwark pańszczyźniany</b>: zboże z Mazowsza i Podola spływa Wisłą do <b>Gdańska</b>, a stamtąd do Amsterdamu.","Rośnie pańszczyzna (<b>statut toruński 1520</b>: min. 1 dzień w tygodniu), chłopi przypisani do ziemi.","Słabną miasta (poza Gdańskiem), rośnie bogactwo szlachty."],w:"Model działa w XVI w., ale w XVII w. ceny zboża spadają, a wojny niszczą kraj."}
+],q:[["Co oznaczała konstytucja Nihil novi (1505)?","nic nowego bez zgody senatu i posłów","wolną elekcję","tolerancję religijną","zakaz wyjazdu chłopów"],["Hołd pruski złożył…","Albrecht Hohenzollern","Albrecht Dürer","Fryderyk Wilhelm","Karol V"],["Które ziemie przeszły z Litwy do Korony w 1569 r.?","Podlasie, Wołyń, Kijowszczyzna","Żmudź i Inflanty","Mazowsze i Prusy","Smoleńsk i Połock"]]},
+
+{t:"Wolna elekcja, Batory, Wazowie",c:"1572–1648",s:[
+ {t:"Pierwsze bezkrólewie",d:"1572–1573",b:["Interrex = <b>prymas</b>.","<b>Konfederacja warszawska</b> (tolerancja).","Elekcja <b>viritim</b>: każdy szlachcic może głosować osobiście (pole elekcyjne na Woli)."]},
+ {t:"Artykuły henrykowskie i pacta conventa",b:["<b>Artykuły henrykowskie</b> (stałe): wolna elekcja, sejm co 2 lata, zgoda sejmu na podatki, pospolite ruszenie i wojnę, rada senatorów-rezydentów, <b>prawo wypowiedzenia posłuszeństwa</b> (de non praestanda oboedientia).","<b>Pacta conventa</b>: obietnice konkretnego kandydata.","Henryk Walezy ucieka już w 1574 r., żeby zostać królem Francji."],w:"Od 1573 r. każdy król jest „królem na warunkach”. Rodzi się monarchia mieszana."},
+ {t:"Stefan Batory",d:"1576–1586",b:["Książę Siedmiogrodu, mąż Anny Jagiellonki.","Wojna z <b>Iwanem Groźnym</b>: Połock (1579), Wielkie Łuki (1580), oblężenie Pskowa (1581).","<b>Rozejm w Jamie Zapolskim 1582</b>: Inflanty przy Rzeczypospolitej.","Trybunał Koronny (1578), piechota wybraniecka, Akademia Wileńska (1579)."]},
+ {t:"Zygmunt III Waza",d:"1587–1632",b:["Syn króla Szwecji. Traci tron szwedzki (1599), co prowadzi do <b>wojen ze Szwecją</b>.","<b>Kircholm 1605</b> (Chodkiewicz).","<b>Rokosz Zebrzydowskiego 1606–1609</b>.","<b>Dymitriady i smuta w Rosji</b>: Kłuszyn 1610 (Żółkiewski), Polacy na Kremlu 1610–1612, Władysław obrany carem (nie objął tronu).","Turcja: Cecora 1620, Chocim 1621."],w:"Dynastyczna polityka Wazów wciąga Rzeczpospolitą w wojny, których szlachta nie chce."},
+ {t:"Władysław IV",d:"1632–1648",b:["Wojna smoleńska i <b>pokój w Polanowie 1634</b>.","<b>Rozejm w Sztumskiej Wsi 1635</b> ze Szwecją.","Względny spokój, ale narastają napięcia z Kozakami na Ukrainie."]}
+],q:[["Kto pełnił funkcję interrexa?","prymas","marszałek wielki","hetman wielki","kanclerz"],["Rozejm w Jamie Zapolskim zawarł…","Stefan Batory","Zygmunt III","Jan Kazimierz","Zygmunt August"],["Prawo wypowiedzenia posłuszeństwa królowi pochodziło z…","artykułów henrykowskich","konstytucji Nihil novi","unii lubelskiej","sejmu niemego"]]},
+
+{t:"Wojny i absolutyzm w Europie XVII w.",c:"1562–1715",s:[
+ {t:"Francja: od wojen religijnych do Króla Słońce",b:["Wojny religijne <b>1562–1598</b>, noc św. Bartłomieja <b>1572</b>.","<b>Henryk IV</b>: edykt nantejski <b>1598</b>.","<b>Richelieu</b> (1624–1642) łamie hugenotów i magnatów, wzmacnia króla.","<b>Ludwik XIV</b> (1643–1715): Wersal, Colbert (merkantylizm), odwołanie edyktu nantejskiego (1685), wojna o sukcesję hiszpańską (1701–1714)."],w:"Francja to podręcznikowy model absolutyzmu."},
+ {t:"Wojna trzydziestoletnia",d:"1618–1648",b:["Start: <b>defenestracja praska 1618</b> (protestanci czescy przeciw Habsburgom).","Fazy: czeska, duńska, szwedzka (<b>Gustaw II Adolf</b>, Lützen 1632), francuska.","Z religijnej staje się wojną o hegemonię (katolicka Francja wspiera protestantów).","Niemcy tracą ok. 1/3 ludności."]},
+ {t:"Pokój westfalski",d:"1648",b:["Uznanie niepodległości <b>Szwajcarii</b> i <b>Niderlandów</b>.","Rzesza rozbita, książęta prawie suwerenni. Kalwinizm uznany.","Zyski Francji (Alzacja) i Szwecji (Pomorze Przednie).","Początek „ładu westfalskiego”: równowaga suwerennych państw."]},
+ {t:"Niderlandy i Hiszpania",b:["Powstanie przeciw Hiszpanii Filipa II od <b>1566/1568</b>, <b>unia utrechcka 1579</b>.","Złoty wiek Niderlandów: VOC (1602), Amsterdam, Rembrandt.","Hiszpania: Lepanto (1571), ale klęska Armady (1588) i stopniowy upadek."]},
+ {t:"Anglia: droga do monarchii parlamentarnej",d:"1642 · 1649 · 1688",b:["Elżbieta I, Armada <b>1588</b>.","Stuartowie kontra parlament: <b>rewolucja 1642–1649</b>, <b>Karol I ścięty 1649</b>, Cromwell lordem protektorem.","Restauracja <b>1660</b>, Habeas Corpus <b>1679</b>.","<b>Chwalebna rewolucja 1688</b>, <b>Bill of Rights 1689</b>: parlament ponad królem."],w:"Anglia to alternatywa dla absolutyzmu. Locke opisze ją teoretycznie."}
+],q:[["Jak zakończyła się wojna trzydziestoletnia?","pokojem westfalskim 1648","pokojem augsburskim 1555","edyktem nantejskim 1598","pokojem w Utrechcie 1713"],["Kto był lordem protektorem Anglii?","Oliver Cromwell","Karol I","Wilhelm Orański","Jakub II"],["Kto był ministrem i twórcą merkantylizmu Ludwika XIV?","Colbert","Richelieu","Mazarin","Necker"]]},
+
+{t:"Kryzys Rzeczypospolitej: potop i Wiedeń",c:"1648–1699",s:[
+ {t:"Powstanie Chmielnickiego",d:"1648",b:["Kozacy zaporoscy i chłopi ruscy z Tatarami. Przyczyny: ucisk społeczny, religijny (prawosławie) i ograniczenie rejestru kozackiego.","Klęski: <b>Żółte Wody, Korsuń, Piławce</b> (1648). Zwycięstwo pod <b>Beresteczkiem</b> (1651).","<b>Ugoda perejasławska 1654</b>: Kozacy poddają się carowi, wybucha wojna z Rosją (1654–1667)."]},
+ {t:"Liberum veto",d:"1652",b:["Poseł <b>Siciński</b> zrywa sejm.","Zasada jednomyślności zostaje doprowadzona do absurdu: jeden głos unieważnia wszystkie uchwały.","W XVIII w. sejmy są zrywane nagminnie, często za obce pieniądze."],w:"Symbol upadku ustroju. Reformatorzy XVIII w. (Konarski, Konstytucja 3 maja) walczą właśnie z nim."},
+ {t:"Potop szwedzki",d:"1655–1660",b:["Karol X Gustaw. Kapitulacje: <b>Ujście</b> (Wielkopolska), <b>Kiejdany</b> (Radziwiłłowie).","Zwrot: obrona <b>Jasnej Góry</b> (ks. Kordecki), <b>śluby lwowskie 1656</b>, wojna szarpana <b>Czarnieckiego</b>.","<b>Traktaty welawsko-bydgoskie 1657</b>: Prusy Książęce suwerenne.","<b>Pokój w Oliwie 1660</b>."],w:"Kraj stracił nawet 1/3 ludności, a miasta zostały zrujnowane. Gospodarcza katastrofa."},
+ {t:"Wschód: Andruszów",d:"1667",b:["<b>Rozejm w Andruszowie</b>: Rosja dostaje Smoleńszczyznę, Czernihowszczyznę, lewobrzeżną Ukrainę i Kijów.","<b>Pokój Grzymułtowskiego 1686</b> potwierdza to na stałe.","Abdykacja Jana Kazimierza (1668) po rokoszu Lubomirskiego (1665–1666)."]},
+ {t:"Turcja i Sobieski",d:"12 IX 1683",b:["<b>Buczacz 1672</b>: utrata Podola.","<b>Chocim 1673</b>: hetman Sobieski wygrywa i zostaje królem (1674).","<b>Odsiecz wiedeńska 1683</b>: klęska Kara Mustafy.","<b>Liga Święta 1684</b>, <b>Karłowice 1699</b>: Podole wraca."],w:"Wiedeń to szczyt militarnej sławy i koniec tureckiej ekspansji, ale politycznie korzystają głównie Habsburgowie."}
+],q:[["Kto pierwszy zerwał sejm liberum veto (1652)?","Władysław Siciński","Tadeusz Rejtan","Jerzy Lubomirski","Janusz Radziwiłł"],["Na mocy traktatów welawsko-bydgoskich (1657)…","Prusy Książęce uzyskały suwerenność","Polska straciła Podole","Szwecja oddała Inflanty","Kozacy przeszli pod władzę cara"],["Rozejm w Andruszowie (1667) zawarto z…","Rosją","Szwecją","Turcją","Prusami"]]},
+
+{t:"XVIII w.: nowe potęgi i oświecenie",c:"1689–1789",s:[
+ {t:"Rosja Piotra I",d:"1700–1721",b:["Modernizacja na wzór zachodni: armia, flota, administracja, golenie bród.","<b>Petersburg 1703</b>.","<b>Wojna północna</b>: <b>Połtawa 1709</b>, pokój w Nystad <b>1721</b>, Piotr I cesarzem.","<b>Katarzyna II</b> (1762–1796): ekspansja na Polskę, Krym i Morze Czarne."]},
+ {t:"Prusy i Austria",b:["<b>1701</b> Królestwo w Prusach. Fryderyk Wilhelm I, „król-żołnierz”.","<b>Fryderyk II Wielki</b> (1740–1786): zabiera Śląsk, wojna o sukcesję austriacką (1740–1748), <b>wojna siedmioletnia (1756–1763)</b>.","Austria: <b>Maria Teresa</b> (1740–1780), <b>Józef II</b> (1780–1790): patent tolerancyjny i zniesienie poddaństwa osobistego (1781)."],w:"Rosja, Prusy i Austria to trzy absolutystyczne monarchie wokół słabej Rzeczypospolitej, czyli przyszli zaborcy."},
+ {t:"Idee oświecenia",b:["<b>Locke</b>: umowa społeczna i prawa naturalne (życie, wolność, własność).","<b>Monteskiusz</b>: trójpodział władzy („O duchu praw” 1748).","<b>Wolter</b>: tolerancja i krytyka Kościoła. <b>Rousseau</b>: suwerenność ludu („Umowa społeczna” 1762).","<b>Encyklopedia</b> (Diderot, d'Alembert), <b>Kant</b>: „sapere aude”. <b>Adam Smith</b> (1776): wolny rynek."],w:"Te nazwiska zobaczysz potem w Konstytucji USA, Deklaracji praw człowieka i Konstytucji 3 maja."},
+ {t:"Absolutyzm oświecony",b:["Monarcha jako „pierwszy sługa państwa” (Fryderyk II).","Reformy: szkolnictwo, prawo, tolerancja, gospodarka. Władza pozostaje jednak nieograniczona.","Przykłady: Fryderyk II, Katarzyna II, Józef II."]},
+ {t:"Rewolucja przemysłowa",d:"od ok. 1760",b:["Anglia: kapitał z handlu i kolonii, węgiel, rewolucja rolnicza.","Wynalazki: przędzarka (1764), <b>maszyna parowa Watta (1769)</b>.","Fabryki, urbanizacja, rodzi się klasa robotnicza."],w:"Zmiana porównywalna tylko z rewolucją neolityczną. Otwiera XIX w."}
+],q:[["Bitwa pod Połtawą (1709) to zwycięstwo…","Piotra I nad Karolem XII","Karola XII nad Augustem II","Fryderyka II nad Austrią","Sobieskiego nad Turkami"],["Autor teorii trójpodziału władzy?","Monteskiusz","Rousseau","Hobbes","Wolter"],["Absolutystą oświeconym NIE był…","Ludwik XIV","Fryderyk II","Katarzyna II","Józef II"]]},
+
+{t:"Czasy saskie",c:"1697–1763",s:[
+ {t:"August II i wojna północna",d:"1700–1721",b:["Elektor saski wybrany w 1697 r. Wciąga Rzeczpospolitą w wojnę ze Szwecją.","Karol XII okupuje kraj, a <b>Stanisław Leszczyński</b> zostaje królem (1704).","Po <b>Połtawie 1709</b> August wraca dzięki Rosji."]},
+ {t:"Sejm niemy",d:"1717",b:["Konflikt Augusta II ze szlachtą (konfederacja tarnogrodzka). Mediatorem jest car Piotr I.","Sejm „niemy” (bez dyskusji): armia ograniczona do <b>24 tys.</b>","Rosja staje się <b>gwarantem</b> ustroju: protektorat."],w:"Od tego momentu sąsiedzi pilnują, żeby Rzeczpospolita pozostała słaba."},
+ {t:"August III",d:"1733–1763",b:["Podwójna elekcja w 1733 r. i <b>wojna o sukcesję polską</b>. Rosja i Austria osadzają Augusta III.","Prawie wszystkie sejmy zerwane, państwo bez reform, bez skarbu i bez armii.","Rządzi oligarchia magnacka: <b>Familia</b> (Czartoryscy) kontra Potoccy."]},
+ {t:"Zaczątki odrodzenia",b:["<b>Stanisław Konarski:</b> Collegium Nobilium (1740), „O skutecznym rad sposobie” (1760–1763) przeciw liberum veto.","<b>Biblioteka Załuskich</b> (1747).","Program Familii: wzmocnienie rządu i skarbu."],w:"Reformy Stanisława Augusta mają korzenie w schyłku epoki saskiej."}
+],q:[["Sejm niemy (1717) ograniczył armię do…","24 tys.","100 tys.","60 tys.","12 tys."],["Kto założył Collegium Nobilium?","Stanisław Konarski","Hugo Kołłątaj","Józef Załuski","Adam Czartoryski"],["Kogo Szwedzi osadzili na tronie w 1704 r.?","Stanisława Leszczyńskiego","Augusta III","Jakuba Sobieskiego","Stanisława Augusta"]]},
+
+{t:"Rewolucje atlantyckie",c:"1765–1815",s:[
+ {t:"Ameryka: od podatków do niepodległości",d:"4 VII 1776",b:["Po wojnie siedmioletniej Londyn nakłada podatki (ustawa stemplowa 1765). Hasło: „no taxation without representation”.","<b>Bostońska herbatka 1773</b>.","<b>Deklaracja Niepodległości 4 VII 1776</b> (Jefferson), z ideami Locke'a.","Saratoga 1777, pomoc Francji, <b>Yorktown 1781</b>, <b>pokój paryski 1783</b>."]},
+ {t:"Konstytucja USA",d:"1787",b:["Republika federalna, <b>trójpodział</b> (Kongres, prezydent, Sąd Najwyższy), system checks and balances.","Waszyngton pierwszym prezydentem (1789).","Polacy: <b>Kościuszko</b> (fortyfikacje, West Point), <b>Pułaski</b> (poległ pod Savannah 1779)."]},
+ {t:"Francja 1789",d:"14 VII 1789",b:["Przyczyny: bankructwo państwa, przywileje stanu I i II, idee oświecenia, nieurodzaj.","5 V Stany Generalne → 17 VI <b>Zgromadzenie Narodowe</b> → 20 VI przysięga w sali do gry w piłkę.","<b>14 VII szturm Bastylii</b>, 4 VIII zniesienie przywilejów, <b>26 VIII Deklaracja Praw Człowieka i Obywatela</b>."]},
+ {t:"Radykalizacja",d:"1791–1799",b:["Konstytucja 1791 (monarchia konstytucyjna).","<b>1792 republika</b>, wojna z Austrią i Prusami.","<b>21 I 1793</b> ścięcie Ludwika XVI, jakobini, <b>terror</b> (Robespierre).","<b>9 termidora (27 VII 1794)</b>, Dyrektoriat, <b>18 brumaire'a 1799</b>: Napoleon."],w:"Wojny rewolucyjne odciągają Prusy i Austrię od Polski, a zarazem ułatwiają II i III rozbiór."},
+ {t:"Epilog: Napoleon",b:["Cesarz 1804, <b>Kodeks Napoleona</b>.","<b>Księstwo Warszawskie 1807</b>.","<b>Kongres wiedeński 1814–1815</b>: nowy ład Europy i koniec epoki w szerokim ujęciu."]}
+],q:[["Kiedy uchwalono Deklarację Niepodległości USA?","4 VII 1776","14 VII 1789","3 V 1791","17 IX 1787"],["Co oznacza data 9 termidora?","upadek Robespierre'a","szturm Bastylii","zamach Napoleona","ścięcie króla"],["Pułaski zginął pod…","Savannah","Yorktown","Saratogą","Bostonem"]]},
+
+{t:"Stanisław August, reformy, rozbiory",c:"1764–1795",s:[
+ {t:"Początek panowania",d:"1764",b:["Elekcja przy poparciu <b>Katarzyny II</b>.","Reformy Czartoryskich (1764), <b>Szkoła Rycerska 1765</b>, mennica, ograniczenie liberum veto w sprawach skarbowych.","Rosja wymusza <b>prawa kardynalne</b> (1768) jako ich gwarant.","<b>Konfederacja barska 1768–1772</b> przeciw Rosji."]},
+ {t:"I rozbiór",d:"5 VIII 1772",b:["Rosja, Prusy, Austria: ok. <b>30% terytorium</b> i 35% ludności.","Sejm rozbiorowy 1773: protest <b>Rejtana</b>.","Prusy dostają Pomorze Gdańskie (bez Gdańska i Torunia), Austria Galicję, Rosja ziemie inflanckie i białoruskie."]},
+ {t:"Reformy po rozbiorze",d:"1773 · 1775",b:["<b>KEN 1773</b>: pierwsze ministerstwo oświaty w Europie (majątki pojezuickie, podręczniki po polsku).","<b>Rada Nieustająca 1775</b>: pierwszy stały rząd.","Rozkwit kultury: Krasicki, Naruszewicz, mecenat króla (obiady czwartkowe)."]},
+ {t:"Sejm Wielki i Konstytucja 3 maja",d:"3 V 1791",b:["<b>Sejm Czteroletni 1788–1792</b>, obradujący jako konfederacja: armia 100 tys., podatek z dóbr szlachty.","Prawo o miastach (IV 1791).","<b>Konstytucja 3 maja</b>: trójpodział, <b>dziedziczny tron</b> (Wettinowie), koniec liberum veto i konfederacji, odpowiedzialność ministrów, chłopi pod opieką prawa.","Zaręczenie Wzajemne Obojga Narodów (X 1791)."],w:"Pierwsza konstytucja w Europie i druga na świecie (po USA)."},
+ {t:"Targowica i II rozbiór",d:"1792–1793",b:["<b>Targowica</b> (Potocki, Rzewuski, Branicki) wzywa Rosję.","Wojna 1792: <b>Zieleńce</b> (ustanowienie Virtuti Militari), <b>Dubienka</b> (Kościuszko). Król przystępuje do Targowicy.","<b>II rozbiór 1793</b>: Rosja i Prusy. Sejm grodzieński."]},
+ {t:"Insurekcja i koniec",d:"1794–1795",b:["<b>24 III 1794</b> przysięga Kościuszki w Krakowie, <b>4 IV Racławice</b> (kosynierzy).","<b>Uniwersał połaniecki 7 V</b>: wolność osobista chłopów, zmniejszenie pańszczyzny.","<b>Maciejowice 10 X</b> (Kościuszko w niewoli), <b>rzeź Pragi 4 XI</b> (Suworow).","<b>III rozbiór 1795</b>, abdykacja króla 25 XI 1795."]},
+ {t:"Dlaczego upadła? (pytanie egzaminacyjne)",b:["<b>Wewnętrzne:</b> liberum veto i paraliż sejmu, wolna elekcja i obce wpływy, oligarchia magnacka, słaby skarb i mała armia, ucisk chłopów, słabe miasta.","<b>Zewnętrzne:</b> sąsiedzi to silne monarchie absolutne, protektorat Rosji, interes Prus (Gdańsk, Toruń), zgoda zaborców (koncert mocarstw).","<b>Paradoks:</b> rozbiory przyszły, gdy kraj zaczął się reformować. Reformy były zagrożeniem dla sąsiadów."],w:"Dobra odpowiedź łączy przyczyny wewnętrzne i zewnętrzne zamiast wybierać jedną stronę."}
+],q:[["Który rozbiór przeprowadziły tylko Rosja i Prusy?","II (1793)","I (1772)","III (1795)","żaden"],["Bitwa pod Racławicami to…","4 IV 1794","10 X 1794","18 VI 1792","3 V 1791"],["Co wprowadzała Konstytucja 3 maja?","dziedziczność tronu i zniesienie liberum veto","wolną elekcję viritim","pańszczyznę 1 dzień w tygodniu","Radę Nieustającą"]]}
+];
+
+/* ================= START: KOTWICE ================= */
+const ANCH=EV.filter(e=>e[4]).filter(e=>[1492,1517,1525,1555,1569,1573,1588,1618,1648,1652,1655,1683,1709,1717,1764,1772,1776,1789,1791,1795].includes(e[0]));
+const seen=new Set();
+$("anchors").innerHTML=ANCH.filter(e=>{const k=e[0]+e[1];if(seen.has(e[0]))return false;seen.add(e[0]);return true}).map(e=>`<div class="anc ${e[1]}"><div class="y">${e[0]}</div><div class="t">${e[2]}</div></div>`).join("");
+
+/* ================= MODUŁY UI ================= */
+let prog=store.get("prog",{});
+function drawMods(){
+  $("mods").innerHTML=MODS.map((m,i)=>{const p=prog[i]||0,tot=m.s.length+1;return `<button class="mod" id="mod${i}"><span class="n">${i}</span><b>${m.t}</b><span>${m.c} · ${m.s.length} slajdów + test</span><div class="bar"><i style="width:${Math.min(100,p/tot*100)}%"></i></div></button>`}).join("");
+  MODS.forEach((m,i)=>$("mod"+i).onclick=()=>openMod(i));
+}
+let cm=0,cs=0,mqState=null;
+function openMod(i){cm=i;cs=0;$("modList").hidden=true;$("viewer").hidden=false;drawSlide()}
+function drawSlide(){
+  const m=MODS[cm],tot=m.s.length+1;
+  prog[cm]=Math.max(prog[cm]||0,cs+1);store.set("prog",prog);
+  $("vProg").innerHTML=Array.from({length:tot},(_,k)=>`<i class="${k<=cs?"on":""}"></i>`).join("");
+  $("vNum").textContent=`${cs+1} / ${tot}`;
+  $("vPrev").disabled=cs===0;window.scrollTo(0,0);
+  if(cs<m.s.length){
+    const s=m.s[cs];
+    $("vSlide").innerHTML=`<div class="slide"><div class="mtitle">Moduł ${cm} · ${m.t}</div>${s.d?`<div class="bigd">${s.d}</div>`:""}<h2>${s.t}</h2><ul>${s.b.map(x=>`<li>${x}</li>`).join("")}</ul>${s.w?`<div class="why">${s.w}</div>`:""}</div>`;
+    $("vNext").textContent="Dalej →";
+  }else{
+    if(!mqState||mqState.m!==cm)mqState={i:0,ok:0,ans:false,m:cm};drawMQ();
+  }
+}
+function drawMQ(){
+  const m=MODS[cm],q=m.q[mqState.i];
+  $("vNext").disabled=!!q&&!mqState.ans;$("vNext").textContent=q?(mqState.i<m.q.length-1?"Dalej →":"Wynik →"):(cm<MODS.length-1?"Następny moduł →":"Do listy");
+  if(!q){$("vSlide").innerHTML=`<div class="slide"><div class="mtitle">Mini-test · wynik</div><div class="bigd">${mqState.ok} / ${m.q.length}</div><h2>${mqState.ok===m.q.length?"Perfekcyjnie. Moduł zaliczony.":"Przejrzyj slajdy jeszcze raz i wróć."}</h2><p class="sub">Potem utrwal materiał w zakładce Quiz.</p></div>`;return}
+  $("vSlide").innerHTML=`<div class="slide"><div class="mtitle">Mini-test · pytanie ${mqState.i+1} z ${m.q.length}</div><div class="mq"><div class="q">${q[0]}</div><div class="opts" id="mqo">${shuffle(q.slice(1)).map((o,k)=>`<button id="mqo${k}">${o}</button>`).join("")}</div><div class="fb" id="mqfb"></div></div></div>`;
+  [...$("mqo").children].forEach(b=>b.onclick=()=>{const bs=[...$("mqo").children];if(bs.some(x=>x.disabled))return;bs.forEach(x=>{x.disabled=true;if(x.textContent===q[1])x.classList.add("ok")});
+    if(b.textContent===q[1]){mqState.ok++;$("mqfb").textContent="Dobrze."}else{b.classList.add("no");$("mqfb").textContent="Poprawnie: "+q[1]}
+    mqState.ans=true;$("vNext").disabled=false});
+}
+$("vNext").onclick=()=>{const m=MODS[cm];if(cs<m.s.length){cs++;drawSlide()}else if(mqState&&mqState.i<m.q.length){mqState.i++;mqState.ans=false;drawMQ();window.scrollTo(0,0)}else{mqState=null;if(cm<MODS.length-1)openMod(cm+1);else closeMod()}};
+$("vPrev").onclick=()=>{if(cs>0){mqState=null;cs--;drawSlide()}};
+function closeMod(){mqState=null;$("viewer").hidden=true;$("modList").hidden=false;drawMods();window.scrollTo(0,0)}
+$("vBack").onclick=closeMod;
+let tx=null;let ty=0;$("vSlide").addEventListener("touchstart",e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+$("vSlide").addEventListener("touchend",e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=Math.abs(e.changedTouches[0].clientY-ty);tx=null;if(dy>40||Math.abs(dx)<70)return;const m=MODS[cm];if(cs>=m.s.length)return;if(dx<-60)$("vNext").click();if(dx>60)$("vPrev").click()});
+document.addEventListener("keydown",e=>{if($("viewer").hidden||$("moduly").hidden)return;if(e.key==="ArrowRight")$("vNext").click();if(e.key==="ArrowLeft")$("vPrev").click()});
+drawMods();
+$("goMod0").onclick=()=>{show("moduly");openMod(0)};
+
+/* ================= OŚ CZASU ================= */
+let tlF={track:"all",cent:"0",key:false};
+const centOf=y=>y<1501?"15":y<=1600?"16":y<=1700?"17":y<=1795?"18":"19";
+const centName={"15":"Do 1500","16":"XVI wiek","17":"XVII wiek","18":"XVIII wiek","19":"Po 1795"};
+function drawTL(){
+  let ev=EV.filter(e=>(tlF.track==="all"||e[1]===tlF.track)&&(tlF.cent==="0"||centOf(e[0])===tlF.cent)&&(!tlF.key||e[4]));
+  let last="";
+  $("tl").className="tl"+(tlF.track==="all"?" split":"");
+  $("tl").innerHTML=ev.map((e,i)=>{const c=centOf(e[0]);const h=c!==last?`<div class="cent">${centName[c]}</div>`:"";last=c;
+    return h+`<button class="ev ${e[1]}" id="ev${i}"><span class="y">${e[0]}</span><span class="body"><span class="t">${e[4]?'<span class="star">★</span> ':""}${e[2]}</span> <span class="tag ${e[1]}">${e[1]==="pl"?"PL":"ŚWIAT"}</span><div class="d" hidden>${e[3]}</div></span></button>`}).join("")||`<p class="sub">Brak wydarzeń dla tych filtrów.</p>`;
+  $("tl").querySelectorAll(".ev").forEach(b=>b.onclick=()=>{const d=b.querySelector(".d");d.hidden=!d.hidden});
+}
+const chipGroup=(id,cb)=>[...$(id).children].forEach(b=>b.onclick=()=>{[...$(id).children].forEach(x=>x.classList.toggle("on",x===b));cb(b.dataset.v)});
+chipGroup("tlTrack",v=>{tlF.track=v;drawTL()});chipGroup("tlCent",v=>{tlF.cent=v;drawTL()});
+$("tlKey").children[0].onclick=e=>{tlF.key=!tlF.key;e.currentTarget.classList.toggle("on",tlF.key);drawTL()};
+drawTL();
+
+/* ================= KRÓLOWIE ================= */
+const X=y=>(y-1500)/300*100;
+$("kings").innerHTML=KINGS.map((k,i)=>{const bars=k.gap?`<i style="left:${X(k.a)}%;width:${X(k.gap[0])-X(k.a)}%"></i><i style="left:${X(k.gap[1])}%;width:${X(k.b)-X(k.gap[1])}%"></i>`:`<i style="left:${X(k.a)}%;width:${Math.max(.8,X(k.b)-X(k.a))}%"></i>`;
+  return `<button class="king" id="k${i}"><div class="hd"><b>${k.n}</b><span>${k.a}–${k.b}${k.gap?"*":""}</span></div><div class="track">${bars}</div><div class="dyn">${k.d}${k.gap?" · *przerwa "+k.gap[0]+"–"+k.gap[1]:""}</div><div class="facts" hidden>${k.f.map(f=>`<div>• ${f}</div>`).join("")}</div></button>`}).join("");
+KINGS.forEach((k,i)=>$("k"+i).onclick=()=>{const f=$("k"+i).querySelector(".facts");f.hidden=!f.hidden});
+
+/* ================= FISZKI ================= */
+const DECKS={poj:POJ.map(p=>[p[0],p[1]]),pos:POS.map(p=>[p[0],p[1]]),dat:EV.filter(e=>e[4]).map(e=>[e[2],`${e[0]}<br><span style="color:var(--muted);font-size:.9rem">${e[3]}</span>`])};
+let deck="poj",known=store.get("known",{poj:[],pos:[],dat:[]}),fq=[],fcur=null;
+function buildQ(){const all=DECKS[deck].map((_,i)=>i);const kn=new Set(known[deck]||[]);fq=shuffle(all.filter(i=>!kn.has(i)));if(!fq.length)fq=shuffle(all)}
+function drawF(){
+  const tot=DECKS[deck].length,kn=(known[deck]||[]).length;
+  $("fStat").textContent=`Umiesz ${kn} z ${tot}`;$("fMeter").style.width=(kn/tot*100)+"%";
+  if(!fq.length)buildQ();fcur=fq[0];const c=DECKS[deck][fcur];
+  $("fQ").innerHTML=c[0];$("fA").innerHTML=c[1];$("fA").hidden=true;$("fHint").hidden=false;
+}
+$("fCard").onclick=()=>{$("fA").hidden=!$("fA").hidden;$("fHint").hidden=!$("fA").hidden};
+$("fYes").onclick=()=>{known[deck]=[...new Set([...(known[deck]||[]),fcur])];store.set("known",known);fq.shift();drawF()};
+$("fNo").onclick=()=>{fq.shift();const pos=Math.min(fq.length,3);fq.splice(pos,0,fcur);known[deck]=(known[deck]||[]).filter(x=>x!==fcur);store.set("known",known);drawF()};
+$("fReset").onclick=()=>{known[deck]=[];store.set("known",known);buildQ();drawF()};
+chipGroup("deckSel",v=>{deck=v;buildQ();drawF()});
+buildQ();drawF();
+
+/* ================= QUIZ ================= */
+const QM={
+ rok:{l:"Który rok?",gen(){const e=rnd(EV);const s=new Set([e[0]]);while(s.size<4){const d=e[0]+rnd([-30,-20,-12,-7,-4,4,7,12,20,30,45]);if(d>1440&&d<1820)s.add(d)}return{h:e[1]==="pl"?"Polska":"Świat",q:e[2],ans:String(e[0]),opts:[...s].map(String),two:1,why:e[3]}}},
+ kol:{l:"Kolejność",order:1,gen(){let pick;do{pick=shuffle(EV).slice(0,4)}while(new Set(pick.map(e=>e[0])).size<4||Math.min(...pick.map((e,i)=>Math.min(...pick.filter((_,j)=>j!==i).map(f=>Math.abs(f[0]-e[0])))))<4);return{h:"Stuknij od najwcześniejszego do najpóźniejszego",q:"Ułóż chronologicznie",items:pick}}},
+ syn:{l:"Polska ↔ świat",gen(){const pls=EV.filter(e=>e[1]==="pl");let p,near;do{p=rnd(pls);near=EV.filter(e=>e[1]==="sw"&&Math.abs(e[0]-p[0])<=6)}while(!near.length);const c=near.sort((a,b)=>Math.abs(a[0]-p[0])-Math.abs(b[0]-p[0]))[0];const far=shuffle(EV.filter(e=>e[1]==="sw"&&Math.abs(e[0]-p[0])>=35)).slice(0,3);return{h:`W Polsce: ${p[2]}. Co działo się wtedy w świecie?`,q:p[2],ans:c[2],opts:[c[2],...far.map(f=>f[2])],why:`${p[2]}: ${p[0]} · ${c[2]}: ${c[0]}`}}},
+ krol:{l:"Kto panował?",gen(){let y,ks;do{y=1502+Math.floor(Math.random()*293);ks=KINGS.filter(k=>y>k.a&&y<k.b&&!(k.gap&&y>=k.gap[0]&&y<=k.gap[1]))}while(ks.length!==1||KINGS.some(k=>k.a===y||k.b===y));const k=ks[0];const s=new Set([k.n]);while(s.size<4)s.add(rnd(KINGS).n);return{h:"Królem Polski w roku…",q:String(y),ans:k.n,opts:[...s],why:`${k.n}: ${k.a}–${k.b}`}}},
+ poj:{l:"Pojęcia",gen(){const p=rnd(POJ);const s=new Set([p[0]]);while(s.size<4)s.add(rnd(POJ)[0]);return{h:"Które pojęcie pasuje do definicji?",q:p[1],ans:p[0],opts:[...s],small:1}}},
+ kto:{l:"Kto to?",gen(){const p=rnd(POS);const s=new Set([p[0]]);while(s.size<4)s.add(rnd(POS)[0]);return{h:"Rozpoznaj postać",q:p[1],ans:p[0],opts:[...s],small:1}}}
+};
+let qm="rok",qs={ok:0,all:0,streak:0},cur=null,sel=[];
+$("qModes").innerHTML=Object.keys(QM).map((k,i)=>`<button class="${i?"":"on"}" data-v="${k}">${QM[k].l}</button>`).join("");
+chipGroup("qModes",v=>{qm=v;qs={ok:0,all:0,streak:0};upd();qNext()});
+const upd=()=>$("qScore").textContent=`${qs.ok} / ${qs.all} · seria ${qs.streak}`;
+function result(ok,msg){qs.all++;if(ok){qs.ok++;qs.streak++}else qs.streak=0;upd();$("qFb").innerHTML=(ok?"Dobrze. ":"")+msg+(qs.streak&&qs.streak%10===0?` · <b>${qs.streak} z rzędu!</b>`:"")}
+function qNext(){
+  cur=QM[qm].gen();sel=[];window.scrollTo(0,0);$("qFb").textContent="";$("qHint").textContent=cur.h||"";
+  $("qQ").style.fontSize=cur.small?"1.08rem":"";$("qQ").innerHTML=cur.q;
+  $("qO").className="opts"+(cur.two?" two":"");
+  if(QM[qm].order){
+    $("qCheck").hidden=false;$("qCheck").disabled=true;
+    $("qO").innerHTML=cur.items.map((e,i)=>`<button id="qi${i}" data-i="${i}"><span class="ord" hidden></span>${e[2]}</button>`).join("");
+    [...$("qO").children].forEach(b=>b.onclick=()=>{if(b.disabled)return;const i=+b.dataset.i;const k=sel.indexOf(i);if(k>=0)sel.splice(k,1);else sel.push(i);
+      [...$("qO").children].forEach(x=>{const j=sel.indexOf(+x.dataset.i);const o=x.querySelector(".ord");o.hidden=j<0;o.textContent=j+1;x.classList.toggle("sel",j>=0)});$("qCheck").disabled=sel.length<4});
+  }else{
+    $("qCheck").hidden=true;
+    $("qO").innerHTML=shuffle(cur.opts).map((o,i)=>`<button id="qo${i}">${o}</button>`).join("");
+    [...$("qO").children].forEach(b=>b.onclick=()=>{const bs=[...$("qO").children];if(bs.some(x=>x.disabled))return;bs.forEach(x=>{x.disabled=true;if(x.textContent===cur.ans)x.classList.add("ok")});
+      const ok=b.textContent===cur.ans;if(!ok)b.classList.add("no");result(ok,(ok?"":"Poprawnie: "+cur.ans+". ")+(cur.why||""))});
+  }
+}
+$("qCheck").onclick=()=>{const correct=cur.items.map((e,i)=>[e[0],i]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);const ok=correct.every((v,k)=>v===sel[k]);
+  [...$("qO").children].forEach(x=>{x.disabled=true;const i=+x.dataset.i;x.classList.remove("sel");x.classList.add(sel.indexOf(i)===correct.indexOf(i)?"ok":"no");x.querySelector(".ord").hidden=false;x.querySelector(".ord").textContent=cur.items[i][0]});
+  $("qCheck").disabled=true;result(ok,ok?"":"Poprawna kolejność: "+correct.map(i=>cur.items[i][0]).join(" → "))};
+$("qNext").onclick=qNext;
+qNext();
+
+/* ================= ZAKŁADKI ================= */
+const tabs=[...document.querySelectorAll(".bnav button")];
+function show(t){if(!document.getElementById(t)||document.getElementById(t).tagName!=="SECTION")t="start";
+  tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.t===t));
+  document.querySelectorAll("section").forEach(s=>s.hidden=s.id!==t);document.querySelector("header").hidden=t!=="start";
+  try{localStorage.setItem("nw-tab",t)}catch(e){}window.scrollTo(0,0)}
+tabs.forEach(b=>b.onclick=()=>show(b.dataset.t));
+let st=location.hash.slice(1);if(!st){try{st=localStorage.getItem("nw-tab")||""}catch(e){}}
+show(st||"start");
+</script>
+
+</body>
+</html>
